@@ -53,6 +53,7 @@ Inside each worktree it runs:
 <pnpm-tool> install --frozen-lockfile
 <pnpm-tool> --filter @nuclearplayer/player build:frontend
 cargo build --release --manifest-path packages/player/src-tauri/Cargo.toml
+# export copies target/release/player (plain cargo) or target/release/nuclear-music-player (Tauri-renamed) to nuclear-music-player-arch
 .devcontainer/scripts/export-linux-binary.sh
 .devcontainer/scripts/build-arch-package.sh
 .devcontainer/scripts/validate-arch-package.sh

@@ -259,11 +259,9 @@ ensure_packaging_helpers() {
 
     [[ -e "${source_path}" ]] || fail "required helper is missing in this repo: ${helper_path}"
 
-    if [[ ! -e "${destination_path}" ]]; then
-      mkdir -p "$(dirname "${destination_path}")"
-      install -m "$(stat -c '%a' "${source_path}")" "${source_path}" "${destination_path}"
-      printf 'Copied missing package helper into temporary worktree: %s\n' "${helper_path}"
-    fi
+    mkdir -p "$(dirname "${destination_path}")"
+    install -m "$(stat -c '%a' "${source_path}")" "${source_path}" "${destination_path}"
+    printf 'Synced package helper into temporary worktree: %s\n' "${helper_path}"
   done
 }
 
