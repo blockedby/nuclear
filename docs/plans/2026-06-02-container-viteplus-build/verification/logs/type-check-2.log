@@ -1,0 +1,585 @@
+ Container devcontainer-nuclear-dev-run-74a88fb65d32 Creating 
+ Container devcontainer-nuclear-dev-run-74a88fb65d32 Created 
+2:26:35 AM [vite+] warning: `esbuild` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `oxc` instead.
+2:26:35 AM [vite+] warning: `optimizeDeps.esbuildOptions` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `optimizeDeps.rolldownOptions` instead.
+You or a plugin you are using have set `optimizeDeps.esbuildOptions` but this option is now deprecated. Vite now uses Rolldown to optimize the dependencies. Please use `optimizeDeps.rolldownOptions` instead.
+2:26:35 AM [vite+] warning: `esbuild` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `oxc` instead.
+2:26:35 AM [vite+] warning: `optimizeDeps.esbuildOptions` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `optimizeDeps.rolldownOptions` instead.
+You or a plugin you are using have set `optimizeDeps.esbuildOptions` but this option is now deprecated. Vite now uses Rolldown to optimize the dependencies. Please use `optimizeDeps.rolldownOptions` instead.
+2:26:35 AM [vite+] warning: `esbuild` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `oxc` instead.
+2:26:35 AM [vite+] warning: `optimizeDeps.esbuildOptions` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `optimizeDeps.rolldownOptions` instead.
+You or a plugin you are using have set `optimizeDeps.esbuildOptions` but this option is now deprecated. Vite now uses Rolldown to optimize the dependencies. Please use `optimizeDeps.rolldownOptions` instead.
+2:26:35 AM [vite+] warning: `esbuild` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `oxc` instead.
+2:26:35 AM [vite+] warning: `optimizeDeps.esbuildOptions` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `optimizeDeps.rolldownOptions` instead.
+You or a plugin you are using have set `optimizeDeps.esbuildOptions` but this option is now deprecated. Vite now uses Rolldown to optimize the dependencies. Please use `optimizeDeps.rolldownOptions` instead.
+~/packages/website$ astro check ⊘ cache disabled
+~/packages/hifi$ tsc --noEmit ⊘ cache disabled
+$ turbo type-check ⊘ cache disabled
+~/packages/i18n$ tsc --noEmit ⊘ cache disabled
+
+Attention:
+Turborepo now collects completely anonymous telemetry regarding usage.
+This information is used to shape the Turborepo roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://turborepo.dev/docs/telemetry
+
+• turbo 2.9.14
+
+   • Packages in scope: @nuclearplayer/docs, @nuclearplayer/eslint-config, @nuclearplayer/hifi, @nuclearplayer/i18n, @nuclearplayer/model, @nuclearplayer/player, @nuclearplayer/plugin-sdk, @nuclearplayer/storybook, @nuclearplayer/tailwind-config, @nuclearplayer/themes, @nuclearplayer/tools, @nuclearplayer/ui, @nuclearplayer/website
+   • Running type-check in 13 packages
+   • Remote caching disabled
+
+@nuclearplayer/hifi:type-check: cache miss, executing 4cf059ddc126e758
+@nuclearplayer/hifi:build: cache miss, executing 011b34c323f8c1ce
+@nuclearplayer/model:build: cache miss, executing 84edf34599a4f45c
+@nuclearplayer/i18n:build: cache miss, executing 65bc48a9d66e5a76
+@nuclearplayer/model:type-check: cache miss, executing 8f4dc87fb9b114d1
+@nuclearplayer/i18n:type-check: cache miss, executing 29daabefabbb0e94
+@nuclearplayer/themes:build: cache miss, executing 9820275451acec27
+@nuclearplayer/website:type-check: cache miss, executing 0e64d7dd537c5227
+@nuclearplayer/themes:type-check: cache miss, executing 18b455b478d61558
+▶ Astro collects anonymous usage data.
+  This information helps us improve Astro.
+  Run "astro telemetry disable" to opt-out.
+  https://astro.build/telemetry
+
+@nuclearplayer/i18n:type-check: 
+@nuclearplayer/i18n:type-check: > @nuclearplayer/i18n@0.0.10 type-check /workspaces/nuclear/packages/i18n
+@nuclearplayer/i18n:type-check: > tsc --noEmit
+@nuclearplayer/i18n:type-check: 
+@nuclearplayer/i18n:build: 
+@nuclearplayer/i18n:build: > @nuclearplayer/i18n@0.0.10 build /workspaces/nuclear/packages/i18n
+@nuclearplayer/i18n:build: > tsc && vite build
+@nuclearplayer/i18n:build: 
+@nuclearplayer/hifi:build: 
+@nuclearplayer/hifi:build: > @nuclearplayer/hifi@0.0.10 build /workspaces/nuclear/packages/hifi
+@nuclearplayer/hifi:build: > tsc && vite build
+@nuclearplayer/hifi:build: 
+@nuclearplayer/model:build: 
+@nuclearplayer/model:build: > @nuclearplayer/model@0.0.10 build /workspaces/nuclear/packages/model
+@nuclearplayer/model:build: > vite build
+@nuclearplayer/model:build: 
+@nuclearplayer/themes:build: 
+@nuclearplayer/themes:build: > @nuclearplayer/themes@0.0.10 build /workspaces/nuclear/packages/themes
+@nuclearplayer/themes:build: > tsc && vite build
+@nuclearplayer/themes:build: 
+@nuclearplayer/themes:type-check: 
+@nuclearplayer/themes:type-check: > @nuclearplayer/themes@0.0.10 type-check /workspaces/nuclear/packages/themes
+@nuclearplayer/themes:type-check: > tsc --noEmit
+@nuclearplayer/themes:type-check: 
+@nuclearplayer/model:type-check: 
+@nuclearplayer/model:type-check: > @nuclearplayer/model@0.0.10 type-check /workspaces/nuclear/packages/model
+@nuclearplayer/model:type-check: > tsc --noEmit
+@nuclearplayer/model:type-check: 
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: > @nuclearplayer/website@2.10.0 type-check /workspaces/nuclear/packages/website
+@nuclearplayer/website:type-check: > astro check
+@nuclearplayer/website:type-check: 
+@nuclearplayer/hifi:type-check: 
+@nuclearplayer/hifi:type-check: > @nuclearplayer/hifi@0.0.10 type-check /workspaces/nuclear/packages/hifi
+@nuclearplayer/hifi:type-check: > tsc --noEmit
+@nuclearplayer/hifi:type-check: 
+
+~/packages/model$ tsc --noEmit ⊘ cache disabled
+
+~/packages/themes$ tsc --noEmit ⊘ cache disabled
+@nuclearplayer/model:build: vite v7.3.5 building client environment for production...
+
+~/packages/ui$ tsc --noEmit ⊘ cache disabled
+
+@nuclearplayer/model:build: transforming...
+@nuclearplayer/i18n:build: vite v7.3.5 building client environment for production...
+@nuclearplayer/themes:build: vite v7.3.5 building client environment for production...
+@nuclearplayer/hifi:build: vite v7.3.5 building client environment for production...
+@nuclearplayer/model:build: ✓ 85 modules transformed.
+@nuclearplayer/model:build: rendering chunks...
+@nuclearplayer/model:build: 
+@nuclearplayer/model:build: [vite:dts] Start generate declaration files...
+@nuclearplayer/model:build: computing gzip size...
+@nuclearplayer/model:build: dist/index.mjs  96.84 kB │ gzip: 21.41 kB │ map: 413.92 kB
+@nuclearplayer/model:build: [vite:dts] Declaration files built in 882ms.
+@nuclearplayer/model:build: 
+@nuclearplayer/model:build: dist/index.cjs  68.85 kB │ gzip: 18.87 kB │ map: 403.37 kB
+@nuclearplayer/model:build: ✓ built in 1.73s
+@nuclearplayer/i18n:build: transforming...
+@nuclearplayer/ui:build: cache miss, executing ef6fc70213465959
+@nuclearplayer/ui:type-check: cache miss, executing 76f196d632450acf
+@nuclearplayer/website:type-check: 02:26:38 [content] Syncing content
+@nuclearplayer/website:type-check: 02:26:38 [WARN] [glob-loader] The base directory "/workspaces/nuclear/packages/website/src/content/blog/" does not exist.
+@nuclearplayer/website:type-check: 02:26:38 [content] Synced content
+@nuclearplayer/website:type-check: 02:26:38 [types] Generated 633ms
+@nuclearplayer/website:type-check: 02:26:38 [check] Getting diagnostics for Astro files in /workspaces/nuclear/packages/website...
+02:26:38 [content] Syncing content
+02:26:38 [WARN] [glob-loader] The base directory "/workspaces/nuclear/packages/website/src/content/blog/" does not exist.
+02:26:38 [content] Synced content
+02:26:38 [types] Generated 637ms
+02:26:38 [check] Getting diagnostics for Astro files in /workspaces/nuclear/packages/website...
+@nuclearplayer/themes:build: transforming...
+@nuclearplayer/ui:type-check: 
+@nuclearplayer/ui:type-check: > @nuclearplayer/ui@0.0.10 type-check /workspaces/nuclear/packages/ui
+@nuclearplayer/ui:type-check: > tsc --noEmit
+@nuclearplayer/ui:type-check: 
+@nuclearplayer/ui:build: 
+@nuclearplayer/ui:build: > @nuclearplayer/ui@0.0.10 build /workspaces/nuclear/packages/ui
+@nuclearplayer/ui:build: > tsc && vite build
+@nuclearplayer/ui:build: 
+@nuclearplayer/i18n:build: ✓ 50 modules transformed.
+@nuclearplayer/i18n:build: rendering chunks...
+@nuclearplayer/i18n:build: 
+@nuclearplayer/i18n:build: [vite:dts] Start generate declaration files...
+@nuclearplayer/i18n:build: computing gzip size...
+@nuclearplayer/i18n:build: dist/index.mjs  206.19 kB │ gzip: 52.95 kB │ map: 326.44 kB
+@nuclearplayer/i18n:build: [vite:dts] Declaration files built in 838ms.
+@nuclearplayer/i18n:build: 
+@nuclearplayer/i18n:build: dist/index.cjs  161.71 kB │ gzip: 47.63 kB │ map: 316.30 kB
+@nuclearplayer/i18n:build: ✓ built in 1.68s
+@nuclearplayer/hifi:build: transforming...
+@nuclearplayer/themes:build: ✓ 87 modules transformed.
+@nuclearplayer/themes:build: rendering chunks...
+@nuclearplayer/themes:build: 
+@nuclearplayer/themes:build: [vite:dts] Start generate declaration files...
+@nuclearplayer/themes:build: computing gzip size...
+@nuclearplayer/themes:build: dist/index.css    1.79 kB │ gzip:  0.39 kB
+@nuclearplayer/themes:build: dist/index.js   105.56 kB │ gzip: 23.23 kB
+@nuclearplayer/themes:build: [vite:dts] Declaration files built in 919ms.
+@nuclearplayer/themes:build: 
+@nuclearplayer/themes:build: ✓ built in 1.72s
+@nuclearplayer/hifi:build: ✓ 31 modules transformed.
+@nuclearplayer/hifi:build: rendering chunks...
+@nuclearplayer/hifi:build: 
+@nuclearplayer/hifi:build: [vite:dts] Start generate declaration files...
+@nuclearplayer/hifi:build: computing gzip size...
+@nuclearplayer/hifi:build: dist/index.js  40.15 kB │ gzip: 11.72 kB
+@nuclearplayer/hifi:build: [vite:dts] Declaration files built in 1318ms.
+@nuclearplayer/hifi:build: 
+@nuclearplayer/hifi:build: ✓ built in 1.54s
+
+~/packages/plugin-sdk$ tsc --noEmit ⊘ cache disabled
+[96msrc/content.config.ts[0m:[93m16[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m16[0m     draft: z.boolean().default(false),
+[7m  [0m [93m           ~[0m
+[96msrc/content.config.ts[0m:[93m15[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m15[0m     cover: z.string().optional(),
+[7m  [0m [93m           ~[0m
+[96msrc/content.config.ts[0m:[93m14[0m:[93m13[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m14[0m     author: z.string(),
+[7m  [0m [93m            ~[0m
+[96msrc/content.config.ts[0m:[93m13[0m:[93m19[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m13[0m     tags: z.array(z.string()).default([]),
+[7m  [0m [93m                  ~[0m
+[96msrc/content.config.ts[0m:[93m13[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m13[0m     tags: z.array(z.string()).default([]),
+[7m  [0m [93m          ~[0m
+[96msrc/content.config.ts[0m:[93m12[0m:[93m18[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m12[0m     description: z.string(),
+[7m  [0m [93m                 ~[0m
+[96msrc/content.config.ts[0m:[93m11[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m11[0m     date: z.coerce.date(),
+[7m  [0m [93m          ~[0m
+[96msrc/content.config.ts[0m:[93m10[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m10[0m     title: z.string(),
+[7m  [0m [93m           ~[0m
+[96msrc/content.config.ts[0m:[93m9[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m9[0m   schema: z.object({
+[7m [0m [93m          ~[0m
+[96msrc/content.config.ts[0m:[93m1[0m:[93m28[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m1[0m import { defineCollection, z } from 'astro:content';
+[7m [0m [93m                           ~[0m
+
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m16[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m16[0m     draft: z.boolean().default(false),
+@nuclearplayer/website:type-check: [7m  [0m [93m           ~[0m
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m15[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m15[0m     cover: z.string().optional(),
+@nuclearplayer/website:type-check: [7m  [0m [93m           ~[0m
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m14[0m:[93m13[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m14[0m     author: z.string(),
+@nuclearplayer/website:type-check: [7m  [0m [93m            ~[0m
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m13[0m:[93m19[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m13[0m     tags: z.array(z.string()).default([]),
+@nuclearplayer/website:type-check: [7m  [0m [93m                  ~[0m
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m13[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m13[0m     tags: z.array(z.string()).default([]),
+@nuclearplayer/website:type-check: [7m  [0m [93m          ~[0m
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m12[0m:[93m18[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m12[0m     description: z.string(),
+@nuclearplayer/website:type-check: [7m  [0m [93m                 ~[0m
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m11[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m11[0m     date: z.coerce.date(),
+@nuclearplayer/website:type-check: [7m  [0m [93m          ~[0m
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m10[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m10[0m     title: z.string(),
+@nuclearplayer/website:type-check: [7m  [0m [93m           ~[0m
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m9[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m9[0m   schema: z.object({
+@nuclearplayer/website:type-check: [7m [0m [93m          ~[0m
+@nuclearplayer/website:type-check: [96msrc/content.config.ts[0m:[93m1[0m:[93m28[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m1[0m import { defineCollection, z } from 'astro:content';
+@nuclearplayer/website:type-check: [7m [0m [93m                           ~[0m
+@nuclearplayer/website:type-check: 
+[96msrc/components/FAQ.astro[0m:[93m87[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m87[0m <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+[7m  [0m [93m        ~~~~[0m
+
+@nuclearplayer/website:type-check: [96msrc/components/FAQ.astro[0m:[93m87[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: Add the `is:inline` directive explicitly to silence this hint.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m87[0m <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+@nuclearplayer/website:type-check: [7m  [0m [93m        ~~~~[0m
+@nuclearplayer/website:type-check: 
+
+~/packages/player$ tsc --noEmit ⊘ cache disabled
+[96msrc/layouts/BaseLayout.astro[0m:[93m166[0m:[93m7[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m166[0m       async
+[7m   [0m [93m      ~~~~~[0m
+[96msrc/layouts/BaseLayout.astro[0m:[93m162[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m162[0m     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+[7m   [0m [93m            ~~~~[0m
+
+@nuclearplayer/website:type-check: [96msrc/layouts/BaseLayout.astro[0m:[93m166[0m:[93m7[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: Add the `is:inline` directive explicitly to silence this hint.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m166[0m       async
+@nuclearplayer/website:type-check: [7m   [0m [93m      ~~~~~[0m
+@nuclearplayer/website:type-check: [96msrc/layouts/BaseLayout.astro[0m:[93m162[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: Add the `is:inline` directive explicitly to silence this hint.
+@nuclearplayer/website:type-check: 
+@nuclearplayer/website:type-check: [7m162[0m     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+@nuclearplayer/website:type-check: [7m   [0m [93m            ~~~~[0m
+@nuclearplayer/website:type-check: 
+Result (45 files): 
+- 0 errors
+- 0 warnings
+- 13 hints
+
+@nuclearplayer/website:type-check: Result (45 files): 
+@nuclearplayer/website:type-check: - 0 errors
+@nuclearplayer/website:type-check: - 0 warnings
+@nuclearplayer/website:type-check: - 13 hints
+@nuclearplayer/website:type-check: 
+
+@nuclearplayer/ui:build: vite v7.3.5 building client environment for production...
+@nuclearplayer/ui:build: transforming...
+
+@nuclearplayer/ui:build: ✓ 3196 modules transformed.
+@nuclearplayer/ui:build: rendering chunks...
+@nuclearplayer/ui:build: 
+@nuclearplayer/ui:build: [vite:dts] Start generate declaration files...
+@nuclearplayer/ui:build: computing gzip size...
+@nuclearplayer/ui:build: dist/index.css    422.80 kB │ gzip: 272.94 kB
+@nuclearplayer/ui:build: dist/index.js   1,638.44 kB │ gzip: 390.45 kB
+@nuclearplayer/ui:build: [vite:dts] Declaration files built in 2592ms.
+@nuclearplayer/ui:build: 
+@nuclearplayer/ui:build: ✓ built in 5.42s
+@nuclearplayer/plugin-sdk:type-check: cache miss, executing efa80fbdc822b805
+@nuclearplayer/plugin-sdk:build: cache miss, executing ab78827c1613d41c
+@nuclearplayer/plugin-sdk:type-check: 
+@nuclearplayer/plugin-sdk:type-check: > @nuclearplayer/plugin-sdk@2.8.0 type-check /workspaces/nuclear/packages/plugin-sdk
+@nuclearplayer/plugin-sdk:type-check: > tsc --noEmit
+@nuclearplayer/plugin-sdk:type-check: 
+@nuclearplayer/plugin-sdk:build: 
+@nuclearplayer/plugin-sdk:build: > @nuclearplayer/plugin-sdk@2.8.0 build /workspaces/nuclear/packages/plugin-sdk
+@nuclearplayer/plugin-sdk:build: > tsc && vite build && api-extractor run --local && pnpm clean:dts
+@nuclearplayer/plugin-sdk:build: 
+@nuclearplayer/plugin-sdk:build: vite v7.3.5 building client environment for production...
+@nuclearplayer/plugin-sdk:build: transforming...
+@nuclearplayer/plugin-sdk:build: ✓ 116 modules transformed.
+@nuclearplayer/plugin-sdk:build: rendering chunks...
+@nuclearplayer/plugin-sdk:build: 
+@nuclearplayer/plugin-sdk:build: [vite:dts] Start generate declaration files...
+@nuclearplayer/plugin-sdk:build: computing gzip size...
+@nuclearplayer/plugin-sdk:build: dist/index.js  108.69 kB │ gzip: 23.62 kB
+@nuclearplayer/plugin-sdk:build: [vite:dts] Declaration files built in 619ms.
+@nuclearplayer/plugin-sdk:build: 
+@nuclearplayer/plugin-sdk:build: ✓ built in 901ms
+@nuclearplayer/plugin-sdk:build: 
+@nuclearplayer/plugin-sdk:build: [1mapi-extractor 7.58.7 [36m - https://api-extractor.com/[39m
+@nuclearplayer/plugin-sdk:build: [22m
+@nuclearplayer/plugin-sdk:build: Using configuration from ./api-extractor.json
+@nuclearplayer/plugin-sdk:build: Analysis will use the bundled TypeScript version 5.9.3
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/@types+prop-types@15.7.15/node_modules/@types/prop-types/index.d.ts:16:38 - (TS2304) Cannot find name 'Iterable'.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/@types+react@18.3.28/node_modules/@types/react/index.d.ts:448:26 - (TS2304) Cannot find name 'Iterable'.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/@types+react@18.3.28/node_modules/@types/react/index.d.ts:486:10 - (TS2456) Type alias 'ReactNode' circularly references itself.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/@types+react@18.3.28/node_modules/@types/react/index.d.ts:490:11 - (TS2304) Cannot find name 'Iterable'.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/classic/schemas.d.cts:580:13 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/json-schema-generator.d.cts:52:17 - (TS2583) Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/registries.d.cts:16:11 - (TS2583) Cannot find name 'WeakMap'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/registries.d.cts:17:13 - (TS2583) Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/schemas.d.cts:53:13 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/schemas.d.cts:119:19 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/schemas.d.cts:766:129 - (TS2583) Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/schemas.d.cts:766:172 - (TS2583) Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/schemas.d.cts:780:92 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/schemas.d.cts:780:113 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/schemas.d.cts:816:13 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/to-json-schema.d.cts:84:11 - (TS2583) Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:40:15 - (TS2585) 'Symbol' only refers to a type, but is being used as a value here. Do you need to change your target library? Try changing the 'lib' compiler option to es2015 or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:41:20 - (TS2552) Cannot find name 'Generator'. Did you mean 'Enumerator'?[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:42:65 - (TS2552) Cannot find name 'ReadonlyMap'. Did you mean 'Readonly'?[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:42:110 - (TS2552) Cannot find name 'ReadonlySet'. Did you mean 'Readonly'?[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:42:41 - (TS2583) Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:42:95 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:109:41 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:110:28 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:146:40 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/util.d.cts:147:38 - (TS2583) Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:1:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ar"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:2:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/az"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:3:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/be"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:4:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/bg"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:5:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ca"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:6:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/cs"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:7:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/da"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:8:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/de"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:9:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/el"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:10:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/en"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:11:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/eo"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:12:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/es"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:13:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/fa"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:14:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/fi"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:15:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/fr"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:16:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/fr-CA"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:17:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/he"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:18:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/hr"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:19:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/hu"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:20:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/hy"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:21:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/id"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:22:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/is"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:23:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/it"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:24:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ja"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:25:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ka"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:26:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/kh"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:27:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/km"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:28:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ko"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:29:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/lt"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:30:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/mk"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:31:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ms"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:32:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/nl"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:33:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/no"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:34:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ota"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:35:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ps"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:36:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/pl"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:37:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/pt"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:38:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ro"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:39:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ru"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:40:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/sl"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:41:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/sv"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:42:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ta"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:43:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/th"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:44:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/tr"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:45:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ua"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:46:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/uk"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:47:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/ur"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:48:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/uz"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:49:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/vi"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:50:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/zh-CN"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:51:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/zh-TW"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/index.d.cts:52:21 - (TS1259) Module '"/workspaces/nuclear/node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/locales/yo"' can only be default-imported using the 'esModuleInterop' flag[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/artwork.ts:3:1 - (ae-missing-release-tag) "pickArtwork" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:3:1 - (ae-missing-release-tag) "ProviderRef" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:9:1 - (ae-missing-release-tag) "ArtistCredit" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:15:14 - (ae-missing-release-tag) "formatArtistNames" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:18:1 - (ae-missing-release-tag) "ArtworkPurpose" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:20:1 - (ae-missing-release-tag) "Artwork" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:28:1 - (ae-missing-release-tag) "ArtworkSet" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:32:1 - (ae-missing-release-tag) "ArtistRef" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:39:1 - (ae-missing-release-tag) "AlbumRef" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:46:1 - (ae-missing-release-tag) "TrackRef" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:53:1 - (ae-missing-release-tag) "PlaylistRef" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:60:1 - (ae-missing-release-tag) "Track" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:74:1 - (ae-missing-release-tag) "Album" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:87:1 - (ae-missing-release-tag) "ArtistBio" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/index.ts:97:1 - (ae-missing-release-tag) "ArtistSocialStats" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/playlists.ts:3:1 - (ae-missing-release-tag) "Playlist" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/playlists.ts:17:1 - (ae-missing-release-tag) "PlaylistIndexEntry" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/playlists.ts:26:1 - (ae-missing-release-tag) "PlaylistItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/queue.ts:3:1 - (ae-missing-release-tag) "QueueItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/queue.ts:11:1 - (ae-missing-release-tag) "RepeatMode" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/queue.ts:13:1 - (ae-missing-release-tag) "Queue" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:45:14 - (ae-missing-release-tag) "PLAYLIST_EXPORT_VERSION" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:47:14 - (ae-missing-release-tag) "playlistSchema" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:61:14 - (ae-missing-release-tag) "playlistExportSchema" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:66:14 - (ae-missing-release-tag) "playlistIndexEntrySchema" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:78:14 - (ae-missing-release-tag) "playlistIndexSchema" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:80:14 - (ae-missing-release-tag) "legacyTrackSchema" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:92:14 - (ae-missing-release-tag) "legacyPlaylistSchema" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:97:14 - (ae-missing-release-tag) "legacyConfigSchema" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:109:1 - (ae-missing-release-tag) "LegacyTrack" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/schemas/playlists.ts:110:1 - (ae-missing-release-tag) "LegacyPlaylist" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/search.ts:3:1 - (ae-missing-release-tag) "SearchCategory" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/search.ts:5:1 - (ae-missing-release-tag) "SearchParams" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/search.ts:11:1 - (ae-missing-release-tag) "SearchResults" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/streaming.ts:3:1 - (ae-missing-release-tag) "Stream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/streaming.ts:16:1 - (ae-missing-release-tag) "LocalFileInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/streaming.ts:27:1 - (ae-missing-release-tag) "StreamCandidate" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: /workspaces/nuclear/packages/model/src/streaming.ts:38:14 - (ae-missing-release-tag) "stripResolutionState" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/dashboard.d.ts:4:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/discovery.d.ts:4:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/events.d.ts:3:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/favorites.d.ts:4:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/metadata.d.ts:4:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/playback.d.ts:3:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/playlists.d.ts:4:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/providers.d.ts:3:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/queue.d.ts:4:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/settings.d.ts:3:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/shell.d.ts:3:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: dist/api/streaming.d.ts:4:5 - (TS18028) Private identifiers are only available when targeting ECMAScript 2015 and higher.[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/dashboard.ts:10:1 - (ae-missing-release-tag) "DashboardAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/discovery.ts:5:1 - (ae-missing-release-tag) "DiscoveryAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/events.ts:7:1 - (ae-missing-release-tag) "EventsAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/favorites.ts:10:1 - (ae-missing-release-tag) "FavoritesAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/http.ts:47:1 - (ae-missing-release-tag) "HttpAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/index.ts:32:1 - (ae-missing-release-tag) "NuclearAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/index.ts:33:3 - (ae-forgotten-export) The symbol "Settings" needs to be exported by the entry point index.d.ts[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/index.ts:34:3 - (ae-forgotten-export) The symbol "Providers" needs to be exported by the entry point index.d.ts[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/index.ts:35:3 - (ae-forgotten-export) The symbol "QueueAPI" needs to be exported by the entry point index.d.ts[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/index.ts:36:3 - (ae-forgotten-export) The symbol "StreamingAPI" needs to be exported by the entry point index.d.ts[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/index.ts:37:3 - (ae-forgotten-export) The symbol "MetadataAPI" needs to be exported by the entry point index.d.ts[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/index.ts:90:1 - (ae-missing-release-tag) "NuclearPluginAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/logger.ts:7:1 - (ae-missing-release-tag) "LoggerAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/playback.ts:8:1 - (ae-missing-release-tag) "PlaybackAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/playlists.ts:10:1 - (ae-missing-release-tag) "PlaylistsAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/shell.ts:3:1 - (ae-missing-release-tag) "ShellAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/api/ytdlp.ts:8:1 - (ae-missing-release-tag) "YtdlpAPI" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/react/useSetting.ts:5:14 - (ae-missing-release-tag) "useSetting" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types.ts:3:1 - (ae-missing-release-tag) "PluginIcon" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types.ts:5:1 - (ae-missing-release-tag) "PluginManifest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types.ts:21:1 - (ae-missing-release-tag) "NuclearPlugin" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types.ts:28:1 - (ae-missing-release-tag) "PluginMetadata" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types.ts:42:1 - (ae-missing-release-tag) "LoadedPlugin" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/dashboard.ts:10:1 - (ae-missing-release-tag) "DashboardCapability" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/dashboard.ts:17:1 - (ae-missing-release-tag) "DashboardProvider" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/dashboard.ts:28:1 - (ae-missing-release-tag) "AttributedResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/dashboard.ts:35:1 - (ae-missing-release-tag) "DashboardHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/discovery.ts:5:1 - (ae-missing-release-tag) "DiscoveryOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/discovery.ts:10:1 - (ae-missing-release-tag) "DiscoveryProvider" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/discovery.ts:17:1 - (ae-missing-release-tag) "DiscoveryHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/events.ts:3:1 - (ae-missing-release-tag) "PluginEventMap" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/events.ts:8:1 - (ae-missing-release-tag) "PluginEventListener" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/events.ts:12:1 - (ae-missing-release-tag) "EventsHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/favorites.ts:8:1 - (ae-missing-release-tag) "FavoriteEntry" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/favorites.ts:13:1 - (ae-missing-release-tag) "FavoritesData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/favorites.ts:19:1 - (ae-missing-release-tag) "FavoritesListener" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/favorites.ts:21:1 - (ae-missing-release-tag) "FavoritesHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/http.ts:1:1 - (ae-missing-release-tag) "HttpRequestInit" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/http.ts:7:1 - (ae-missing-release-tag) "HttpResponseData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/http.ts:13:1 - (ae-missing-release-tag) "FetchFunction" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/http.ts:18:1 - (ae-missing-release-tag) "HttpHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/logger.ts:1:1 - (ae-missing-release-tag) "LogLevel" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/logger.ts:3:1 - (ae-missing-release-tag) "LoggerHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/metadata.ts:13:1 - (ae-missing-release-tag) "MetadataHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/playback.ts:5:1 - (ae-missing-release-tag) "PlaybackStatus" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/playback.ts:7:1 - (ae-missing-release-tag) "PlaybackState" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/playback.ts:13:1 - (ae-missing-release-tag) "PlaybackListener" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/playback.ts:15:1 - (ae-missing-release-tag) "PlaybackHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/playlists.ts:10:1 - (ae-missing-release-tag) "PlaylistsListener" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/playlists.ts:12:1 - (ae-missing-release-tag) "PlaylistProvider" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/playlists.ts:17:1 - (ae-missing-release-tag) "PlaylistsHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/providers.ts:1:1 - (ae-missing-release-tag) "ProviderKind" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/providers.ts:10:1 - (ae-missing-release-tag) "ProviderDescriptor" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/providers.ts:17:1 - (ae-missing-release-tag) "ProvidersHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/queue.ts:5:1 - (ae-missing-release-tag) "QueueItemStateUpdate" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/queue.ts:10:1 - (ae-missing-release-tag) "QueueListener" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/queue.ts:11:1 - (ae-missing-release-tag) "QueueItemListener" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/queue.ts:13:1 - (ae-missing-release-tag) "QueueHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/search.ts:17:1 - (ae-missing-release-tag) "SearchCapability" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/search.ts:19:1 - (ae-missing-release-tag) "ArtistMetadataCapability" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/search.ts:27:1 - (ae-missing-release-tag) "AlbumMetadataCapability" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/search.ts:29:1 - (ae-missing-release-tag) "MetadataProvider" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/search.ts:51:1 - (ae-missing-release-tag) "MissingCapabilityError" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:3:1 - (ae-missing-release-tag) "SettingSource" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:7:1 - (ae-missing-release-tag) "SettingCategory" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:9:1 - (ae-missing-release-tag) "BooleanWidget" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:10:1 - (ae-missing-release-tag) "NumberWidget" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:27:1 - (ae-missing-release-tag) "StringWidget" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:32:1 - (ae-missing-release-tag) "EnumWidget" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:34:1 - (ae-missing-release-tag) "BooleanSettingDefinition" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:46:1 - (ae-missing-release-tag) "NumberSettingDefinition" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:62:1 - (ae-missing-release-tag) "StringFormat" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:64:1 - (ae-missing-release-tag) "StringSettingDefinition" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:80:1 - (ae-missing-release-tag) "EnumOption" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:82:1 - (ae-missing-release-tag) "EnumSettingDefinition" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:95:1 - (ae-missing-release-tag) "CustomSettingDefinition" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:107:1 - (ae-missing-release-tag) "SettingDefinition" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:114:1 - (ae-missing-release-tag) "JsonSerializable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:122:1 - (ae-missing-release-tag) "SettingValue" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:124:1 - (ae-missing-release-tag) "CustomWidgetProps" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:131:1 - (ae-missing-release-tag) "CustomWidgetComponent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:133:1 - (ae-missing-release-tag) "SettingsRegistration" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:137:1 - (ae-missing-release-tag) "SettingsRegistrationResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:141:1 - (ae-missing-release-tag) "WidgetRegistry" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/settings.ts:151:1 - (ae-missing-release-tag) "SettingsHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/shell.ts:1:1 - (ae-missing-release-tag) "ShellHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/streaming.ts:7:1 - (ae-missing-release-tag) "StreamingProvider" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/streaming.ts:23:1 - (ae-missing-release-tag) "StreamResolutionResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/streaming.ts:27:1 - (ae-missing-release-tag) "StreamingHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/ytdlp.ts:2:1 - (ae-missing-release-tag) "YtdlpSearchResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/ytdlp.ts:9:1 - (ae-missing-release-tag) "YtdlpStreamInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/ytdlp.ts:17:1 - (ae-missing-release-tag) "YtdlpThumbnail" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/ytdlp.ts:23:1 - (ae-missing-release-tag) "YtdlpPlaylistEntry" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: 
+@nuclearplayer/plugin-sdk:build: API Extractor completed successfully
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/ytdlp.ts:31:1 - (ae-missing-release-tag) "YtdlpPlaylistInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: [33mWarning: src/types/ytdlp.ts:37:1 - (ae-missing-release-tag) "YtdlpHost" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)[39m
+@nuclearplayer/plugin-sdk:build: 
+@nuclearplayer/plugin-sdk:build: > @nuclearplayer/plugin-sdk@2.8.0 clean:dts /workspaces/nuclear/packages/plugin-sdk
+@nuclearplayer/plugin-sdk:build: > rm -rf dist/api dist/mcp dist/react dist/test dist/types dist/types.d.ts dist/*.d.ts.map dist/tsdoc-metadata.json
+@nuclearplayer/plugin-sdk:build: 
+@nuclearplayer/player:type-check: cache miss, executing fda776ee04483585
+@nuclearplayer/player:type-check: 
+@nuclearplayer/player:type-check: > @nuclearplayer/player@1.39.0 type-check /workspaces/nuclear/packages/player
+@nuclearplayer/player:type-check: > tsc --noEmit
+@nuclearplayer/player:type-check: 
+
+ Tasks:    14 successful, 14 total
+Cached:    0 cached, 14 total
+  Time:    21.154s 
+
+
+---
+vp run: 0/9 cache hit (0%). (Run `vp run --last-details` for full details)

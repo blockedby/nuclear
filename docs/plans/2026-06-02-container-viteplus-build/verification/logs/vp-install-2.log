@@ -1,0 +1,23 @@
+ Container devcontainer-nuclear-dev-run-e1abc10a6470 Creating 
+ Container devcontainer-nuclear-dev-run-e1abc10a6470 Created 
+Scope: all 14 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1176
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ EACCES  EACCES: permission denied, mkdir '/workspaces/nuclear/node_modules/.pnpm'
+
+pnpm: EACCES: permission denied, mkdir '/workspaces/nuclear/node_modules/.pnpm'
+    at async Object.mkdir (node:internal/fs/promises:859:10)
+    at async Promise.all (index 1)
+    at async headlessInstall (/home/ubuntu/.vite-plus/package_manager/pnpm/10.33.4/pnpm/dist/pnpm.cjs:155700:9)
+    at async tryFrozenInstall (/home/ubuntu/.vite-plus/package_manager/pnpm/10.33.4/pnpm/dist/pnpm.cjs:164140:60)
+    at async _install (/home/ubuntu/.vite-plus/package_manager/pnpm/10.33.4/pnpm/dist/pnpm.cjs:163934:37)
+    at async mutateModules (/home/ubuntu/.vite-plus/package_manager/pnpm/10.33.4/pnpm/dist/pnpm.cjs:163829:23)
+    at async recursive (/home/ubuntu/.vite-plus/package_manager/pnpm/10.33.4/pnpm/dist/pnpm.cjs:165231:100)
+    at async recursiveInstallThenUpdateWorkspaceState (/home/ubuntu/.vite-plus/package_manager/pnpm/10.33.4/pnpm/dist/pnpm.cjs:165742:31)
+    at async installDeps (/home/ubuntu/.vite-plus/package_manager/pnpm/10.33.4/pnpm/dist/pnpm.cjs:165549:11)
+    at async /home/ubuntu/.vite-plus/package_manager/pnpm/10.33.4/pnpm/dist/pnpm.cjs:202454:23
+
+[1m[90mtip:[39m[0m [90mAvailable short aliases: i = install, rm = remove, un = uninstall, up = update, ls = list, ln = link[39m
+

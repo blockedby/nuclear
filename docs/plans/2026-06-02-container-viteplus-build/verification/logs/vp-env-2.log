@@ -1,0 +1,12 @@
+ Container devcontainer-nuclear-dev-run-540fd04da20a Creating 
+ Container devcontainer-nuclear-dev-run-540fd04da20a Created 
+Environment:
+  Version       24.16.0
+  Source        .node-version
+  Source Path   /workspaces/nuclear/.node-version
+  Project Root  /workspaces/nuclear
+
+Tool Paths:
+  node  /home/kcnc/.vite-plus/js_runtime/node/24.16.0/bin/node
+  npm   /home/kcnc/.vite-plus/js_runtime/node/24.16.0/bin/npm
+  npx   /home/kcnc/.vite-plus/js_runtime/node/24.16.0/bin/npx

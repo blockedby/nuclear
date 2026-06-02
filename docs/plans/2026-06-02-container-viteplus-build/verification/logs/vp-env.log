@@ -1,0 +1,19 @@
+ Network devcontainer_default Creating 
+ Network devcontainer_default Created 
+ Volume devcontainer_nuclear-cargo-git Creating 
+ Volume devcontainer_nuclear-cargo-git Created 
+ Volume devcontainer_nuclear-rustup Creating 
+ Volume devcontainer_nuclear-rustup Created 
+ Volume devcontainer_nuclear-target Creating 
+ Volume devcontainer_nuclear-target Created 
+ Volume devcontainer_nuclear-node-modules Creating 
+ Volume devcontainer_nuclear-node-modules Created 
+ Volume devcontainer_nuclear-pnpm-store Creating 
+ Volume devcontainer_nuclear-pnpm-store Created 
+ Volume devcontainer_nuclear-cargo-registry Creating 
+ Volume devcontainer_nuclear-cargo-registry Created 
+ Container devcontainer-nuclear-dev-run-f197349a6b3c Creating 
+ Container devcontainer-nuclear-dev-run-f197349a6b3c Created 
+/home/kcnc/.vite-plus/env: line 34: vp: command not found
+/home/kcnc/.vite-plus/env: line 28: vp: command not found
+

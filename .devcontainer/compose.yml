@@ -1,0 +1,23 @@
+services:
+  nuclear-dev:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    image: nuclear-viteplus-dev:ubuntu-24.04
+    user: ubuntu
+    working_dir: /workspaces/nuclear
+    init: true
+    tty: true
+    environment:
+      CARGO_HOME: /home/ubuntu/.cargo
+      RUSTUP_HOME: /home/ubuntu/.rustup
+      PNPM_HOME: /home/ubuntu/.local/share/pnpm
+      PNPM_STORE_DIR: /pnpm-store
+      SHELL: /bin/bash
+    volumes:
+      - ..:/workspaces/nuclear
+      - /home/kcnc/.vite-plus:/home/kcnc/.vite-plus:ro
+      - nuclear-pnpm-store:/pnpm-store
+
+volumes:
+  nuclear-pnpm-store:

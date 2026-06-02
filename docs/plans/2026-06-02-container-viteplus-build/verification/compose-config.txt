@@ -1,0 +1,69 @@
+name: devcontainer
+services:
+  nuclear-dev:
+    build:
+      context: /home/kcnc/code/apps/nuclear
+      dockerfile: .devcontainer/Dockerfile
+    environment:
+      CARGO_HOME: /home/nuclear/.cargo
+      PNPM_HOME: /home/nuclear/.local/share/pnpm
+      PNPM_STORE_DIR: /pnpm-store
+      RUSTUP_HOME: /home/nuclear/.rustup
+      SHELL: /bin/bash
+    image: nuclear-viteplus-dev:ubuntu-24.04
+    init: true
+    networks:
+      default: null
+    tty: true
+    user: nuclear
+    volumes:
+      - type: bind
+        source: /home/kcnc/code/apps/nuclear
+        target: /workspaces/nuclear
+        bind: {}
+      - type: bind
+        source: /home/kcnc/.vite-plus
+        target: /home/kcnc/.vite-plus
+        read_only: true
+        bind: {}
+      - type: volume
+        source: nuclear-pnpm-store
+        target: /pnpm-store
+        volume: {}
+      - type: volume
+        source: nuclear-cargo-registry
+        target: /home/nuclear/.cargo/registry
+        volume: {}
+      - type: volume
+        source: nuclear-cargo-git
+        target: /home/nuclear/.cargo/git
+        volume: {}
+      - type: volume
+        source: nuclear-rustup
+        target: /home/nuclear/.rustup
+        volume: {}
+      - type: volume
+        source: nuclear-target
+        target: /workspaces/nuclear/packages/player/src-tauri/target
+        volume: {}
+      - type: volume
+        source: nuclear-node-modules
+        target: /workspaces/nuclear/node_modules
+        volume: {}
+    working_dir: /workspaces/nuclear
+networks:
+  default:
+    name: devcontainer_default
+volumes:
+  nuclear-cargo-git:
+    name: devcontainer_nuclear-cargo-git
+  nuclear-cargo-registry:
+    name: devcontainer_nuclear-cargo-registry
+  nuclear-node-modules:
+    name: devcontainer_nuclear-node-modules
+  nuclear-pnpm-store:
+    name: devcontainer_nuclear-pnpm-store
+  nuclear-rustup:
+    name: devcontainer_nuclear-rustup
+  nuclear-target:
+    name: devcontainer_nuclear-target

@@ -1,0 +1,64 @@
+ Container devcontainer-nuclear-dev-run-644b3274e3bc Creating 
+ Container devcontainer-nuclear-dev-run-644b3274e3bc Created 
+Scope: all 14 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1176
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1176, reused 0, downloaded 20, added 19
+Progress: resolved 1176, reused 0, downloaded 124, added 124
+Progress: resolved 1176, reused 0, downloaded 353, added 354
+ WARN  Tarball download average speed 33 KiB/s (size 33 KiB) is below 50 KiB/s: https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-2.0.3.tgz (GET)
+Progress: resolved 1176, reused 0, downloaded 464, added 461
+Progress: resolved 1176, reused 0, downloaded 601, added 606
+
+   ╭─────────────────────────────────────────╮
+   │                                         │
+   │   Update available! 10.33.4 → 11.5.0.   │
+   │   Changelog: https://pnpm.io/v/11.5.0   │
+   │    To update, run: pnpm self-update     │
+   │                                         │
+   ╰─────────────────────────────────────────╯
+
+Progress: resolved 1176, reused 0, downloaded 643, added 649
+Progress: resolved 1176, reused 0, downloaded 706, added 710
+ WARN  Tarball download average speed 26 KiB/s (size 42 KiB) is below 50 KiB/s: https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.59.3.tgz (GET)
+ WARN  Tarball download average speed 10 KiB/s (size 14 KiB) is below 50 KiB/s: https://registry.npmjs.org/@tauri-apps/plugin-fs/-/plugin-fs-2.4.5.tgz (GET)
+Progress: resolved 1176, reused 0, downloaded 806, added 811
+ WARN  Tarball download average speed 14 KiB/s (size 52 KiB) is below 50 KiB/s: https://registry.npmjs.org/recast/-/recast-0.23.11.tgz (GET)
+Progress: resolved 1176, reused 0, downloaded 1004, added 1010
+Progress: resolved 1176, reused 0, downloaded 1151, added 1157
+Progress: resolved 1176, reused 0, downloaded 1167, added 1173
+Progress: resolved 1176, reused 0, downloaded 1169, added 1175
+ WARN  GET https://registry.npmjs.org/@ianvs/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-4.7.1.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+Progress: resolved 1176, reused 0, downloaded 1170, added 1175
+Progress: resolved 1176, reused 0, downloaded 1170, added 1176, done
+.../esbuild@0.27.7/node_modules/esbuild postinstall$ node install.js
+.../sharp@0.34.5/node_modules/sharp install$ node install/check.js || npm run build
+.../esbuild@0.27.7/node_modules/esbuild postinstall: Done
+.../sharp@0.34.5/node_modules/sharp install: Done
+
+devDependencies:
++ @ianvs/prettier-plugin-sort-imports 4.7.1
++ @tailwindcss/vite 4.2.4
++ @vitejs/plugin-react 5.2.0
++ @vitest/coverage-v8 4.1.5
++ eslint 10.4.1
++ husky 9.1.7
++ jsdom 26.1.0
++ lint-staged 16.4.0
++ prettier-plugin-astro 0.14.1
++ prettier-plugin-tailwindcss 0.8.0
++ tailwindcss 4.2.4
++ turbo 2.9.14
++ typescript 5.9.3
++ vite 7.3.5
++ vite-plugin-dts 4.5.4
++ vite-plugin-svgr 4.5.0
++ vitest 4.1.5
+
+. prepare$ husky
+. prepare: Done
+Done in 29.8s using pnpm v10.33.4
+
+[1m[90mtip:[39m[0m [90mAvailable short aliases: i = install, rm = remove, un = uninstall, up = update, ls = list, ln = link[39m
