@@ -67,13 +67,13 @@ artifacts/branch-arch-package/worktrees/<branch-slug>/artifacts/arch-package/pac
 
 The package validation checks that each package contains `/usr/bin/nuclear-music-player-arch`, contains the desktop file, and uses `Exec=nuclear-music-player-arch %u`.
 
-If a build fails after creating a generated worktree, retry without deleting evidence:
+If a build fails after creating a generated worktree, just run the same command again; existing smoke worktrees are reused by default:
 
 ```bash
-.devcontainer/scripts/build-branch-arch-package.sh --reuse-existing roadmap/wayland-tray-options
+.devcontainer/scripts/build-branch-arch-package.sh roadmap/wayland-tray-options
 ```
 
-Or remove only the generated repo-local worktree and start clean:
+To remove only the generated repo-local worktree and start clean:
 
 ```bash
 git worktree remove "$PWD/artifacts/branch-arch-package/worktrees/roadmap__wayland-tray-options"

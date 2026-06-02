@@ -14,20 +14,19 @@ fail() {
 
 usage() {
   cat >&2 <<USAGE
-Usage: .devcontainer/scripts/build-branch-arch-package.sh [--reuse-existing|--replace-existing] <branch-name>
+Usage: .devcontainer/scripts/build-branch-arch-package.sh [--replace-existing] <branch-name>
 
 Examples:
   .devcontainer/scripts/build-branch-arch-package.sh roadmap/wayland-tray-options
   .devcontainer/scripts/build-branch-arch-package.sh roadmap/mpris2-now-playing
-  .devcontainer/scripts/build-branch-arch-package.sh --reuse-existing roadmap/wayland-tray-options
+  .devcontainer/scripts/build-branch-arch-package.sh --replace-existing roadmap/wayland-tray-options
 
 Creates an ignored repo-local worktree under artifacts/branch-arch-package/worktrees,
 then runs dependency install, frontend build, Rust release build, binary export,
 Arch package build, and package validation inside that worktree.
 
-Use --reuse-existing after a failed build if you want to rerun in the existing
-repo-local smoke worktree. Use --replace-existing only when you intentionally
-want to remove and recreate that generated worktree.
+Existing generated smoke worktrees are reused by default. Use --replace-existing
+only when you intentionally want to remove and recreate that generated worktree.
 USAGE
 }
 
@@ -306,8 +305,9 @@ require_repo_local_path "${worktree_dir}" 'branch package worktree'
 if [[ -e "${worktree_dir}" ]]; then
   if [[ "${replace_existing}" == true ]]; then
     git worktree remove "${worktree_dir}"
-  elif [[ "${reuse_existing}" == false ]]; then
-    fail "worktree already exists: ${worktree_dir}; rerun with --reuse-existing or remove it with 'git worktree remove ${worktree_dir}'"
+  else
+    printf 'Reusing existing smoke worktree: %s\n' "${worktree_dir}"
+    printf 'Use --replace-existing if you want to recreate it from scratch.\n'
   fi
 fi
 
