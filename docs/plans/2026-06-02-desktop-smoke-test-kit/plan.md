@@ -40,3 +40,11 @@ Test plan:
 - 2026-06-02: Implementer started Task 1; initial syntax check for missing wrapper failed as expected before implementation.
 
 - 2026-06-02: Implementer added `.devcontainer/scripts/build-branch-arch-package.sh`, `.devcontainer/docs/desktop-smoke-test-kit.md`, and task package artifacts; static syntax/safety/docs checks passed; expensive builds intentionally skipped.
+
+## Owner verification
+- `bash -n .devcontainer/scripts/build-branch-arch-package.sh .devcontainer/scripts/export-linux-binary.sh .devcontainer/scripts/build-arch-package.sh .devcontainer/scripts/validate-arch-package.sh` passed.
+- Docs grep for #7/#8 branches, `/usr/bin/nuclear-music-player-arch`, and rollback passed.
+- Expensive builds were not run by design.
+
+## Final done-state
+Success: smoke-test kit scripts/docs are implemented, committed, and locally statically verified. No current-goal blockers or follow-up issues.
