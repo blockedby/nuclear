@@ -58,8 +58,8 @@
 - Local / full checks:
   - Not run; targeted checks cover changed behavior and full player Vitest was accidentally invoked once and exposed no relevant failures except expected snapshot/update and hook test pre-fix, both resolved.
 - Remote checks / CI:
-  - Status: queued at PR creation.
-  - Evidence: `gh pr view 8 --json statusCheckRollup` showed `ci`, `coverage`, and `close-if-external` queued.
+  - Status: no checks currently reported after final push.
+  - Evidence: `gh pr checks 8 --repo blockedby/arch-nuclear` returned `no checks reported on the 'roadmap/wayland-tray-options' branch`. Earlier checks were queued on the first push before the report commit.
 
 ## Issues
 ### Issue R-01: Missing tray settings and behavior
