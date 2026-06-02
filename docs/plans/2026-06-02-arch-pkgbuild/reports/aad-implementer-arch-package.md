@@ -6,7 +6,7 @@ PROGRESS_PATH: docs/plans/2026-06-02-arch-pkgbuild/progress/aad-implementer-arch
 
 COMMITS:
 - 1aed60f8: Add Arch PKGBUILD workflow
-- Final report/progress update: pending local commit after this report is written
+- 39f70081: Add Arch package implementation report
 
 FILES_CHANGED:
 - `.devcontainer/arch-package/PKGBUILD`: Added repo-local binary Arch package recipe for `nuclear-player-bin` 1.39.0 installing `/usr/bin/nuclear-music-player`, Tauri desktop file, hicolor PNG icon, license, runtime deps, optdeps, provides/conflicts.

@@ -14,3 +14,4 @@
 - 2026-06-02: Staging Arch packaging workflow, docs, plan/progress, and verification evidence for implementation commit.
 - 2026-06-02: Created implementation commit `1aed60f8 Add Arch PKGBUILD workflow`; writing final report.
 - 2026-06-02: Final implementation report written to `docs/plans/2026-06-02-arch-pkgbuild/reports/aad-implementer-arch-package.md`; staging report/progress commit.
+- 2026-06-02: Updating final report with report commit SHA; this metadata update will be committed separately.
