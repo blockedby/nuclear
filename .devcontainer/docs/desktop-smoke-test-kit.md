@@ -1,6 +1,56 @@
 # Desktop smoke-test kit for draft PR branches
 
-Use this kit to build repo-local Arch packages for draft desktop branches and manually validate them on an Arch desktop. The helper creates ignored worktrees and artifacts under `artifacts/`; it does not install host packages, run host `pacman`, merge branches, or prune/remove anything outside the repository.
+Use this kit to build repo-local Arch packages for draft desktop branches and manually validate them on an Arch desktop. The low-level build helper creates ignored worktrees and artifacts under `artifacts/`; it does not install host packages, run host `pacman`, merge branches, or prune/remove anything outside the repository. The simple wrapper below intentionally runs only one host install command: user-invoked `sudo pacman -U --needed` for the generated package.
+
+## Simple build + install
+
+For the common smoke-test path, use the wrapper first. It builds the selected draft branch, finds the generated Arch package, installs it with `sudo pacman -U --needed`, then prints the launch, evidence, and rollback commands.
+
+Wayland tray package:
+
+```bash
+.devcontainer/scripts/smoke-build-install.sh wayland
+```
+
+MPRIS2/KDE Connect package:
+
+```bash
+.devcontainer/scripts/smoke-build-install.sh mpris
+```
+
+Launch immediately after install when you want the app to start from the same terminal:
+
+```bash
+.devcontainer/scripts/smoke-build-install.sh wayland --run
+```
+
+The wrapper maps targets to branches and generated package directories:
+
+| Target | Branch | Package directory slug |
+| --- | --- | --- |
+| `wayland` | `roadmap/wayland-tray-options` | `roadmap__wayland-tray-options` |
+| `mpris` | `roadmap/mpris2-now-playing` | `roadmap__mpris2-now-playing` |
+
+After install, run manually if you did not pass `--run`:
+
+```bash
+nuclear-music-player-arch
+```
+
+Suggested log capture:
+
+```bash
+mkdir -p artifacts/desktop-smoke-evidence/wayland
+nuclear-music-player-arch 2>&1 | tee artifacts/desktop-smoke-evidence/wayland/app.log
+```
+
+Rollback:
+
+```bash
+sudo pacman -Rns arch-nuclear-bin
+```
+
+Use the lower-level sections below only when you need to inspect or rerun individual build/install steps.
 
 ## Prerequisites
 
