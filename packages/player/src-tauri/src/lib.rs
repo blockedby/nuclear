@@ -9,6 +9,7 @@ pub mod http_api;
 pub mod net;
 mod setup;
 pub mod stream_server;
+mod tray;
 pub mod ytdlp;
 pub mod ytdlp_setup;
 
@@ -80,6 +81,7 @@ pub fn run() {
             http_api::init_http_api(app.handle().clone());
             stream_server::init_stream_server(app.handle().clone());
             discord::init_discord(app.handle().clone());
+            tray::init_tray(app)?;
 
             #[cfg(target_os = "linux")]
             maximize_for_gamescope(app);
