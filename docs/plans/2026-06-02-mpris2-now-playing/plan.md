@@ -90,3 +90,5 @@ Executor: slice owner, optionally acceptance auditor.
 - AC: Live desktop verification is provided or explicitly waived/limited.
   - Covered by: `verification/local.md` waiver; `playerctl` unavailable and no live app session.
   - Result: waived with manual next steps.
+
+- 2026-06-02: Branch pushed and PR opened: https://github.com/blockedby/arch-nuclear/pull/7.
