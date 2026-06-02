@@ -1,10 +1,7 @@
 name: Coverage
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -15,6 +12,7 @@ env:
 
 jobs:
   coverage:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
 
     steps:

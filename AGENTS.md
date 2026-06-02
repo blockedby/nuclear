@@ -58,6 +58,18 @@ pnpm --filter @nuclearplayer/ui test -- -u
 pnpm test -u
 ```
 
+## CI and PR Cost Policy
+
+This fork is cost-conscious. Default to local/staged checks and draft PRs; do not spend GitHub Actions minutes on work-in-progress pushes.
+
+- Create repository PRs as drafts by default: `gh pr create --repo blockedby/arch-nuclear --base master --head <branch> --draft ...`.
+- Keep PRs draft while iterating. Mark ready only when you intentionally want CI/review: `gh pr ready --repo blockedby/arch-nuclear <pr>`.
+- Ordinary PR CI should run correctness checks only: lint, tests, type-check, player frontend build, and Rust `cargo check`/`cargo test` when configured.
+- Do not run full `pnpm build`, `tauri build`, AppImage/deb/rpm bundling, updater signing, or release packaging in ordinary PR CI.
+- Full production builds belong to manual workflow dispatches, release tags, or explicit pre-release validation.
+- Coverage/Codecov is manual-only unless a maintainer explicitly enables tokens and accepts the cost.
+- Before adding or changing workflow triggers, check that draft PR pushes will not start expensive jobs.
+
 ## Code Style
 
 ### General Principles
