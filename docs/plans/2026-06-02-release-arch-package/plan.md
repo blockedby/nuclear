@@ -32,6 +32,8 @@
 ## Plan tasks
 
 ### Task 1: Validate Arch package workflow artifacts and docs
+Status: done. Report: `reports/aad-implementer-release-workflow.md`; verification: `verification/local.md`.
+
 Goal:
 - Ensure package checks prove `.pkg.tar.zst` contains `/usr/bin/nuclear-music-player-arch` and desktop `Exec=nuclear-music-player-arch %u`, and docs explain manual/tag behavior.
 Boundary:
@@ -67,3 +69,5 @@ Executor:
 ## Execution ledger
 - 2026-06-02: Worktree created from `origin/master` at `/home/kcnc/code/apps/nuclear/.worktrees/release-arch-package` on branch `roadmap/release-arch-package`.
 - 2026-06-02: Initial task package and plan created; ready for implementer dispatch.
+
+- 2026-06-02: Implementation complete: added package validation script, wired workflow validation before uploads, documented manual/tag release behavior, recorded local verification.
