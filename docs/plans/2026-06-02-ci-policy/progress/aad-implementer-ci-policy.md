@@ -3,3 +3,4 @@
 2026-06-02: Updated `.github/workflows/ci.yml`: ordinary `ci` now runs lint, test, type-check, player `build:frontend`, Rust `cargo check`, and Rust `cargo test`; manual `production-build` job keeps `pnpm build` available only on `workflow_dispatch`.
 2026-06-02: GREEN static policy check passed. Wrote verification evidence to `verification/local.md`.
 2026-06-02: Final targeted checks passed: Python static policy assertions and grep inspection of CI/release full-build paths. Preparing final report and local commit.
+2026-06-02: Committed implementation/report changes as `33173b2c Adjust PR CI gating`. Updating final report metadata and progress note.

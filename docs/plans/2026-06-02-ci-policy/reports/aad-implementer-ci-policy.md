@@ -4,7 +4,8 @@ TASK_PACKAGE: docs/plans/2026-06-02-ci-policy
 REPORT_PATH: docs/plans/2026-06-02-ci-policy/reports/aad-implementer-ci-policy.md
 PROGRESS_PATH: docs/plans/2026-06-02-ci-policy/progress/aad-implementer-ci-policy.md
 COMMITS:
-- pending local commit after final report write: CI workflow/report changes are ready to commit.
+- 33173b2c: Adjust PR CI gating
+- final metadata commit pending after this report update: records the implementation commit SHA/progress note.
 FILES_CHANGED:
 - `.github/workflows/ci.yml`: replaced ordinary CI `pnpm build` with PR-safe lint/test/type-check/player frontend build/Rust check/Rust test steps; added manual-only `production-build` job for `pnpm build`.
 - `docs/plans/2026-06-02-ci-policy/plan.md`: updated execution ledger with implemented workflow policy and verification artifact pointer.
