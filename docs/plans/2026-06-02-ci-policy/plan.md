@@ -70,3 +70,4 @@ Executor:
 
 ## Execution ledger
 - PR #5-#8 converted to draft successfully on 2026-06-02 via `gh pr ready --undo`.
+- CI workflow update implemented on 2026-06-02: ordinary `ci` job no longer runs `pnpm build`; it runs lint, tests, type-check, player `build:frontend`, Rust `cargo check`, and Rust `cargo test`. Manual `production-build` job preserves `pnpm build` through `workflow_dispatch`. Static verification recorded in `verification/local.md`.
