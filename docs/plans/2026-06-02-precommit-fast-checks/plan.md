@@ -71,6 +71,11 @@ Dependencies:
 Executor:
 - aad-implementer
 
+Status:
+- Implementation complete in local worktree; pending owner acceptance/PR handling.
+
 ## Execution ledger
 - 2026-06-02: Slice owner created worktree `/home/kcnc/code/apps/nuclear/.worktrees/precommit-fast-checks` on branch `precommit-fast-checks` from `origin/master`.
 - 2026-06-02: Initial plan ready; implementation task pending dispatch.
+- 2026-06-02: Implementer changed `.husky/pre-commit` from `npx lint-staged` to `pnpm exec lint-staged`, documented hook installation/check policy in `README.md`, and wrote local verification evidence to `verification/local.md`.
+- 2026-06-02: Verification limitation: `pnpm exec lint-staged --help` and `--debug` could not run because `pnpm` is unavailable in PATH; static shell/config checks passed and no global tools were installed.

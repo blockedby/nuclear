@@ -1,6 +1,6 @@
 # Pre-commit fast checks
 
-- Status: planning
+- Status: implementation complete; pending owner acceptance/PR handling
 - Owner: aad-slice-owner
 - Branch: precommit-fast-checks
 - Worktree: /home/kcnc/code/apps/nuclear/.worktrees/precommit-fast-checks
