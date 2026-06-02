@@ -159,7 +159,6 @@ pnpm install
 pnpm dev
 ```
 
-
 ### Pull request workflow
 
 Create repository PRs as drafts by default so CI does not run for every small work-in-progress push:
@@ -179,6 +178,12 @@ The CI workflow skips draft PR jobs and runs for non-draft PRs, including when a
 Ordinary PR CI intentionally avoids full Tauri production bundling. It runs lint, tests, type-check, the player frontend build, and Rust check/test. Full `pnpm build` / `tauri build` belongs to manual pre-release validation or release workflows.
 
 Coverage/Codecov is manual-only in this fork unless a maintainer explicitly enables the required token and accepts the CI cost.
+
+### Git hooks
+
+Git hooks are managed by Husky and are installed by the root `prepare` script when you run `pnpm install`. If hooks are missing after a custom install, run `pnpm prepare` from the repository root.
+
+The pre-commit hook runs `pnpm exec lint-staged`, which uses the repo-local `lint-staged` dependency. The current staged-file checks run `eslint --fix` only for staged `*.ts`, `*.tsx`, `*.js`, and `*.jsx` files. Commits do not run full `pnpm test`, `pnpm build`, `pnpm lint`, TypeScript checks, or cargo compilation; run those broader commands manually before larger changes or before pushing when needed.
 
 ### Useful commands
 
