@@ -35,7 +35,15 @@ sha256sums=(
 
 package() {
   install -Dm755 "${srcdir}/nuclear-music-player" "${pkgdir}/usr/bin/nuclear-music-player"
-  install -Dm644 "${srcdir}/com.nuclearplayer.Nuclear.desktop" "${pkgdir}/usr/share/applications/com.nuclearplayer.Nuclear.desktop"
-  install -Dm644 "${srcdir}/com.nuclearplayer.Nuclear.png" "${pkgdir}/usr/share/icons/hicolor/512x512/apps/com.nuclearplayer.Nuclear.png"
+  install -Dm644 "${srcdir}/com.nuclearplayer.Nuclear.desktop" "${pkgdir}/usr/share/applications/com.nuclearplayer.desktop"
+  sed -i \
+    -e 's/^Icon=.*/Icon=com.nuclearplayer/' \
+    -e 's/^StartupWMClass=.*/StartupWMClass=com.nuclearplayer/' \
+    "${pkgdir}/usr/share/applications/com.nuclearplayer.desktop"
+
+  for icon_name in com.nuclearplayer com.nuclearplayer.Nuclear nuclear-music-player; do
+    install -Dm644 "${srcdir}/com.nuclearplayer.Nuclear.png" "${pkgdir}/usr/share/icons/hicolor/512x512/apps/${icon_name}.png"
+  done
+
   install -Dm644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/nuclear-player/LICENSE"
 }

@@ -60,12 +60,14 @@ The package installs:
 
 ```text
 /usr/bin/nuclear-music-player
-/usr/share/applications/com.nuclearplayer.Nuclear.desktop
+/usr/share/applications/com.nuclearplayer.desktop
+/usr/share/icons/hicolor/512x512/apps/com.nuclearplayer.png
 /usr/share/icons/hicolor/512x512/apps/com.nuclearplayer.Nuclear.png
+/usr/share/icons/hicolor/512x512/apps/nuclear-music-player.png
 /usr/share/licenses/nuclear-player/LICENSE
 ```
 
-The desktop file comes from `packages/player/src-tauri/resources/com.nuclearplayer.Nuclear.desktop`; the icon comes from `packages/player/src-tauri/icons/icon.png`.
+The desktop file comes from `packages/player/src-tauri/resources/com.nuclearplayer.Nuclear.desktop` and is installed as `com.nuclearplayer.desktop` for the Arch package. During packaging, its `Icon` and `StartupWMClass` fields are patched to `com.nuclearplayer`, matching the Tauri GTK app id enabled by `packages/player/src-tauri/tauri.conf.json`. The icon comes from `packages/player/src-tauri/icons/icon.png` and is installed under the Tauri identifier, existing Flatpak-style application id, and binary lookup names.
 
 ## Configuration
 
