@@ -1,6 +1,6 @@
 # Arch PKGBUILD support
 
-Status: planning
+Status: implementation evidence ready
 Owner: aad-slice-owner
 Branch: arch-pkgbuild-support
 Worktree: .worktrees/arch-pkgbuild-support

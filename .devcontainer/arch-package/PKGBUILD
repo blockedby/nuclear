@@ -1,0 +1,41 @@
+pkgname=nuclear-player-bin
+pkgver=1.39.0
+pkgrel=1
+pkgdesc='Nuclear is a free, open-source music player without ads or tracking.'
+arch=('x86_64')
+url='https://nuclearplayer.com'
+license=('AGPL-3.0-only')
+provides=('nuclear-player' 'nuclear-music-player')
+conflicts=('nuclear-player' 'nuclear-player-git')
+options=('!strip' '!debug')
+depends=(
+  'webkit2gtk-4.1'
+  'gtk3'
+  'hicolor-icon-theme'
+  'gst-plugins-base'
+  'gst-plugins-good'
+)
+optdepends=(
+  'gst-plugins-bad: additional media codec support'
+  'gst-plugins-ugly: patented codec support'
+  'gst-libav: FFmpeg-based codec support'
+)
+source=(
+  'nuclear-music-player'
+  'com.nuclearplayer.Nuclear.desktop'
+  'com.nuclearplayer.Nuclear.png'
+  'LICENSE'
+)
+sha256sums=(
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+)
+
+package() {
+  install -Dm755 "${srcdir}/nuclear-music-player" "${pkgdir}/usr/bin/nuclear-music-player"
+  install -Dm644 "${srcdir}/com.nuclearplayer.Nuclear.desktop" "${pkgdir}/usr/share/applications/com.nuclearplayer.Nuclear.desktop"
+  install -Dm644 "${srcdir}/com.nuclearplayer.Nuclear.png" "${pkgdir}/usr/share/icons/hicolor/512x512/apps/com.nuclearplayer.Nuclear.png"
+  install -Dm644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/nuclear-player/LICENSE"
+}

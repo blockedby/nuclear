@@ -62,3 +62,4 @@ Executor:
 
 ## Execution ledger
 - 2026-06-02: Owner created worktree/branch arch-pkgbuild-support and task package.
+- 2026-06-02: Implementer added `.devcontainer/arch-package/PKGBUILD`, `.devcontainer/scripts/build-arch-package.sh`, Arch package docs, and verification artifact. Syntax and missing-binary checks passed. Containerized `makepkg` was verified with an ignored synthetic executable because no real exported release binary was present; package contents and `.PKGINFO` were inspected.
