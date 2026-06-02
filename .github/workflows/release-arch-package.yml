@@ -1,0 +1,70 @@
+name: Release Arch Package
+
+on:
+  push:
+    tags:
+      - "arch-nuclear@*.*.*"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+env:
+  DO_NOT_TRACK: 1
+
+jobs:
+  arch-package:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Linux build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build plain Linux binary
+        run: |
+          corepack pnpm --filter @nuclearplayer/player build:frontend
+          cargo build --release --manifest-path packages/player/src-tauri/Cargo.toml
+          .devcontainer/scripts/export-linux-binary.sh
+
+      - name: Build Arch package in container
+        run: .devcontainer/scripts/build-arch-package.sh
+
+      - name: Upload workflow artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: arch-nuclear-linux-artifacts
+          path: |
+            artifacts/linux-arch-bin/nuclear-music-player-arch
+            artifacts/arch-package/packages/*.pkg.tar.zst
+          if-no-files-found: error
+
+      - name: Upload release assets
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            artifacts/linux-arch-bin/nuclear-music-player-arch
+            artifacts/arch-package/packages/*.pkg.tar.zst

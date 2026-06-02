@@ -2,10 +2,11 @@
 set -euo pipefail
 
 repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-binary_name="nuclear-music-player"
-source_binary="${repo_root}/packages/player/src-tauri/target/release/${binary_name}"
+source_binary_name="nuclear-music-player"
+artifact_binary_name="nuclear-music-player-arch"
+source_binary="${repo_root}/packages/player/src-tauri/target/release/${source_binary_name}"
 artifact_dir="${1:-${repo_root}/artifacts/linux-arch-bin}"
-artifact_binary="${artifact_dir}/${binary_name}"
+artifact_binary="${artifact_dir}/${artifact_binary_name}"
 
 if [[ ! -x "${source_binary}" ]]; then
   cat >&2 <<ERROR

@@ -17,7 +17,7 @@ Copy it into a repo-local artifact directory with:
 By default, the script writes:
 
 ```text
-artifacts/linux-arch-bin/nuclear-music-player
+artifacts/linux-arch-bin/nuclear-music-player-arch
 ```
 
 To regenerate the binary without requiring AppImage bundling or updater signing, build the frontend and Rust release binary directly:

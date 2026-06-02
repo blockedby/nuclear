@@ -20,6 +20,21 @@
   
 </div>
 
+
+## Arch Nuclear fork
+
+This repository is `blockedby/arch-nuclear`, a maintained Arch/Wayland-focused fork of Nuclear Music Player. The fork keeps Nuclear's app name, icons, plugin model, and user-facing product identity mostly intact, but carries packaging and desktop-integration work that is useful for Arch Linux users.
+
+What is different from upstream Nuclear:
+
+- Arch-first packaging is published from this repository as the fork-specific `arch-nuclear-bin` package.
+- The Arch package installs the executable as `/usr/bin/nuclear-music-player-arch` so it can coexist with upstream-style Nuclear binaries.
+- The packaged desktop launcher uses that renamed executable while keeping the existing app metadata/icon identity sane.
+- Wayland tray and app-id fixes are maintained here for Arch/KDE/GNOME users; larger integrations such as MPRIS2/KDE Connect are tracked separately before implementation.
+- Release artifacts are distributed from GitHub Releases in this repository only. This fork does not publish to upstream package feeds.
+
+Upstream policy: this fork follows upstream Nuclear where practical, but fork-specific code and packaging changes are not sent as upstream PRs or code contributions unless that policy is explicitly revisited.
+
 ## Screenshots
 
 <p align="center">
@@ -52,13 +67,13 @@ Nuclear comes with multiple built-in themes:
 
 ## Download
 
-Grab the latest release for your platform from the [Releases page](https://github.com/nukeop/nuclear/releases).
+Grab Arch Nuclear fork artifacts from the [blockedby/arch-nuclear Releases page](https://github.com/blockedby/arch-nuclear/releases). Upstream Nuclear releases remain available from `nukeop/nuclear`, but this fork publishes its own GitHub Releases-only Arch artifacts.
 
 | Platform | Formats |
 |----------|---------|
 | Windows | `.exe` installer, `.msi` |
 | macOS | `.dmg` (Apple Silicon and Intel) |
-| Linux | `.AppImage`, `.deb`, `.rpm`, `.flatpak` |
+| Linux | Arch package `arch-nuclear-bin-*.pkg.tar.zst`, plain binary `nuclear-music-player-arch`; upstream formats may still be built separately |
 
 ## Features
 
@@ -138,8 +153,8 @@ Nuclear is a pnpm monorepo managed with Turborepo. The main app is built with Ta
 ### Getting started
 
 ```bash
-git clone https://github.com/nukeop/nuclear.git
-cd nuclear
+git clone https://github.com/blockedby/arch-nuclear.git
+cd arch-nuclear
 pnpm install
 pnpm dev
 ```

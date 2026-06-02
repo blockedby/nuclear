@@ -1,12 +1,12 @@
-pkgname=nuclear-player-bin
+pkgname=arch-nuclear-bin
 pkgver=1.39.0
 pkgrel=1
-pkgdesc='Nuclear is a free, open-source music player without ads or tracking.'
+pkgdesc='Arch/Wayland-focused Nuclear Music Player fork package.'
 arch=('x86_64')
-url='https://nuclearplayer.com'
+url='https://github.com/blockedby/arch-nuclear'
 license=('AGPL-3.0-only')
-provides=('nuclear-player' 'nuclear-music-player')
-conflicts=('nuclear-player' 'nuclear-player-git')
+provides=('nuclear-player' 'nuclear-music-player' 'nuclear-music-player-arch')
+conflicts=('nuclear-player' 'nuclear-player-bin' 'nuclear-player-git')
 options=('!strip' '!debug')
 depends=(
   'webkit2gtk-4.1'
@@ -21,7 +21,7 @@ optdepends=(
   'gst-libav: FFmpeg-based codec support'
 )
 source=(
-  'nuclear-music-player'
+  'nuclear-music-player-arch'
   'com.nuclearplayer.Nuclear.desktop'
   'com.nuclearplayer.Nuclear.png'
   'LICENSE'
@@ -34,16 +34,17 @@ sha256sums=(
 )
 
 package() {
-  install -Dm755 "${srcdir}/nuclear-music-player" "${pkgdir}/usr/bin/nuclear-music-player"
+  install -Dm755 "${srcdir}/nuclear-music-player-arch" "${pkgdir}/usr/bin/nuclear-music-player-arch"
   install -Dm644 "${srcdir}/com.nuclearplayer.Nuclear.desktop" "${pkgdir}/usr/share/applications/com.nuclearplayer.desktop"
   sed -i \
+    -e 's|^Exec=.*|Exec=nuclear-music-player-arch %u|' \
     -e 's/^Icon=.*/Icon=com.nuclearplayer/' \
     -e 's/^StartupWMClass=.*/StartupWMClass=com.nuclearplayer/' \
     "${pkgdir}/usr/share/applications/com.nuclearplayer.desktop"
 
-  for icon_name in com.nuclearplayer com.nuclearplayer.Nuclear nuclear-music-player; do
+  for icon_name in com.nuclearplayer com.nuclearplayer.Nuclear nuclear-music-player nuclear-music-player-arch; do
     install -Dm644 "${srcdir}/com.nuclearplayer.Nuclear.png" "${pkgdir}/usr/share/icons/hicolor/512x512/apps/${icon_name}.png"
   done
 
-  install -Dm644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/nuclear-player/LICENSE"
+  install -Dm644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/arch-nuclear-bin/LICENSE"
 }

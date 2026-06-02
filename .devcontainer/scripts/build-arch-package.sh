@@ -2,7 +2,7 @@
 set -euo pipefail
 
 repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-binary_name="nuclear-music-player"
+binary_name="nuclear-music-player-arch"
 container_image="${ARCH_PACKAGE_CONTAINER_IMAGE:-archlinux:base-devel}"
 container_runtime="${CONTAINER_RUNTIME:-}"
 artifact_binary="${ARCH_PACKAGE_BINARY:-${repo_root}/artifacts/linux-arch-bin/${binary_name}}"
