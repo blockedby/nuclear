@@ -42,6 +42,30 @@ artifacts/arch-package/sources/<timestamp>/
 artifacts/arch-package/logs/<timestamp>/
 ```
 
+
+## Validate the package contents
+
+After the package build, validate the generated `pkg.tar.zst` artifacts before uploading or attaching them to a release:
+
+```bash
+.devcontainer/scripts/validate-arch-package.sh
+```
+
+The validation helper scans `artifacts/arch-package/packages/*.pkg.tar.zst` by default and fails unless every package contains:
+
+```text
+/usr/bin/nuclear-music-player-arch
+/usr/share/applications/com.nuclearplayer.desktop
+```
+
+It also extracts the packaged desktop file and verifies that it contains:
+
+```text
+Exec=nuclear-music-player-arch %u
+```
+
+This mirrors the checks run by `.github/workflows/release-arch-package.yml` after the container package build and before artifact upload/release asset attachment.
+
 ## Runtime dependencies
 
 The `PKGBUILD` declares the runtime dependencies expected for the Tauri GTK/WebKit binary on Arch:
@@ -69,6 +93,16 @@ The `arch-nuclear-bin` package installs:
 ```
 
 The desktop file comes from `packages/player/src-tauri/resources/com.nuclearplayer.Nuclear.desktop` and is installed as `com.nuclearplayer.desktop` for the Arch package. During packaging, its `Exec`, `Icon`, and `StartupWMClass` fields are patched to `nuclear-music-player-arch %u` and `com.nuclearplayer`, matching the Tauri GTK app id enabled by `packages/player/src-tauri/tauri.conf.json`. The icon comes from `packages/player/src-tauri/icons/icon.png` and is installed under the Tauri identifier, existing Flatpak-style application id, and binary lookup names.
+
+
+## GitHub release workflow
+
+`.github/workflows/release-arch-package.yml` supports two entry points:
+
+- `workflow_dispatch` for a manual dry-run style package build. This uploads workflow artifacts named `arch-nuclear-linux-artifacts`, including the plain `nuclear-music-player-arch` binary and generated `*.pkg.tar.zst` packages, but it does not create or update a GitHub Release.
+- Tags matching `arch-nuclear@*.*.*` for release publishing. The workflow builds the same artifacts, validates the package contents, uploads workflow artifacts, and attaches the plain binary plus `*.pkg.tar.zst` packages to the fork release.
+
+Release artifacts are for `blockedby/arch-nuclear` only. This workflow is not intended to publish an AUR package or a pacman repository.
 
 ## Configuration
 
