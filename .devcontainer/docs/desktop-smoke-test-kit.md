@@ -2,6 +2,23 @@
 
 Use this kit to build repo-local Arch packages for draft desktop branches and manually validate them on an Arch desktop. The helper creates ignored worktrees and artifacts under `artifacts/`; it does not install host packages, run host `pacman`, merge branches, or prune/remove anything outside the repository.
 
+## Prerequisites
+
+The branch-build helper does not install host packages. Before running it, make sure these tools are available on the host:
+
+- `git`
+- `cargo` / Rust stable
+- Docker or Podman for the Arch `makepkg` container
+- one frontend package tool: `corepack`, standalone `pnpm`, or VitePlus `vp`
+
+If you use VitePlus and your shell does not already expose it, either source it first:
+
+```bash
+source "${VITE_PLUS_ENV:-$HOME/.vite-plus/env}"
+```
+
+or let the helper source `$HOME/.vite-plus/env` automatically when it is present.
+
 ## Build branch packages
 
 Fetch the draft branch refs first:
@@ -32,7 +49,9 @@ artifacts/branch-arch-package/worktrees/roadmap__mpris2-now-playing/
 Inside each worktree it runs:
 
 ```bash
-corepack pnpm --filter @nuclearplayer/player build:frontend
+# frontend tool can be corepack pnpm, pnpm, or VitePlus vp
+<pnpm-tool> install --frozen-lockfile
+<pnpm-tool> --filter @nuclearplayer/player build:frontend
 cargo build --release --manifest-path packages/player/src-tauri/Cargo.toml
 .devcontainer/scripts/export-linux-binary.sh
 .devcontainer/scripts/build-arch-package.sh
@@ -46,6 +65,21 @@ artifacts/branch-arch-package/worktrees/<branch-slug>/artifacts/arch-package/pac
 ```
 
 The package validation checks that each package contains `/usr/bin/nuclear-music-player-arch`, contains the desktop file, and uses `Exec=nuclear-music-player-arch %u`.
+
+If a build fails after creating a generated worktree, retry without deleting evidence:
+
+```bash
+.devcontainer/scripts/build-branch-arch-package.sh --reuse-existing roadmap/wayland-tray-options
+```
+
+Or remove only the generated repo-local worktree and start clean:
+
+```bash
+git worktree remove "$PWD/artifacts/branch-arch-package/worktrees/roadmap__wayland-tray-options"
+.devcontainer/scripts/build-branch-arch-package.sh roadmap/wayland-tray-options
+```
+
+If you mistype a branch name, the helper lists matching local/origin branches where possible.
 
 To rerun validation from the smoke-kit branch after a package build:
 

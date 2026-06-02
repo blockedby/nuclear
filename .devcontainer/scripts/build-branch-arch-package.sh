@@ -2,7 +2,9 @@
 set -euo pipefail
 
 repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-branch_name="${1:-}"
+branch_name=""
+reuse_existing=false
+replace_existing=false
 worktree_root="${repo_root}/artifacts/branch-arch-package/worktrees"
 
 fail() {
@@ -12,13 +14,63 @@ fail() {
 
 usage() {
   cat >&2 <<USAGE
-Usage: .devcontainer/scripts/build-branch-arch-package.sh <branch-name>
+Usage: .devcontainer/scripts/build-branch-arch-package.sh [--reuse-existing|--replace-existing] <branch-name>
+
+Examples:
+  .devcontainer/scripts/build-branch-arch-package.sh roadmap/wayland-tray-options
+  .devcontainer/scripts/build-branch-arch-package.sh roadmap/mpris2-now-playing
+  .devcontainer/scripts/build-branch-arch-package.sh --reuse-existing roadmap/wayland-tray-options
 
 Creates an ignored repo-local worktree under artifacts/branch-arch-package/worktrees,
-then runs the frontend build, Rust release build, binary export, Arch package build,
-and package validation inside that worktree.
+then runs dependency install, frontend build, Rust release build, binary export,
+Arch package build, and package validation inside that worktree.
+
+Use --reuse-existing after a failed build if you want to rerun in the existing
+repo-local smoke worktree. Use --replace-existing only when you intentionally
+want to remove and recreate that generated worktree.
 USAGE
 }
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --reuse-existing)
+      reuse_existing=true
+      shift
+      ;;
+    --replace-existing)
+      replace_existing=true
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    --)
+      shift
+      break
+      ;;
+    -*)
+      usage
+      fail "unknown option: $1"
+      ;;
+    *)
+      if [[ -n "${branch_name}" ]]; then
+        usage
+        fail "only one branch name is supported"
+      fi
+      branch_name="$1"
+      shift
+      ;;
+  esac
+done
+
+if [[ $# -gt 0 ]]; then
+  if [[ -n "${branch_name}" || $# -gt 1 ]]; then
+    usage
+    fail 'only one branch name is supported'
+  fi
+  branch_name="$1"
+fi
 
 require_repo_local_path() {
   local path="$1"
@@ -73,8 +125,27 @@ validate_worktree_name() {
   [[ "${candidate}" != *..* ]] || fail "unsafe derived worktree name contains '..': ${candidate}"
 }
 
+available_branch_suggestions() {
+  local candidate="$1"
+  local prefix="${candidate%/*}"
+
+  if [[ "${prefix}" == "${candidate}" ]]; then
+    prefix='roadmap'
+  fi
+
+  {
+    git for-each-ref --format='%(refname:short)' refs/heads "refs/remotes/origin/${prefix}" 2>/dev/null || true
+    git for-each-ref --format='%(refname:short)' refs/remotes/origin 2>/dev/null || true
+  } \
+    | sed -E 's#^origin/##' \
+    | grep -E "^(${prefix}/|${candidate})" \
+    | sort -u \
+    | head -20
+}
+
 resolve_branch_ref() {
   local candidate="$1"
+  local suggestions
 
   if git show-ref --verify --quiet "refs/heads/${candidate}"; then
     printf '%s\n' "${candidate}"
@@ -86,7 +157,88 @@ resolve_branch_ref() {
     return
   fi
 
+  suggestions="$(available_branch_suggestions "${candidate}")"
+  if [[ -n "${suggestions}" ]]; then
+    printf "build-branch-arch-package: branch '%s' was not found. Did you mean one of these?\n%s\n" \
+      "${candidate}" "${suggestions}" >&2
+  fi
+
   fail "branch '${candidate}' was not found locally or as origin/${candidate}; run 'git fetch origin' first"
+}
+
+source_viteplus_if_available() {
+  local viteplus_env="${VITE_PLUS_ENV:-${HOME}/.vite-plus/env}"
+
+  if [[ -r "${viteplus_env}" ]]; then
+    # shellcheck source=/dev/null
+    . "${viteplus_env}"
+  fi
+}
+
+choose_frontend_tool() {
+  if command -v corepack >/dev/null 2>&1; then
+    printf 'corepack\n'
+    return
+  fi
+
+  if command -v pnpm >/dev/null 2>&1; then
+    printf 'pnpm\n'
+    return
+  fi
+
+  source_viteplus_if_available
+
+  if command -v corepack >/dev/null 2>&1; then
+    printf 'corepack\n'
+    return
+  fi
+
+  if command -v pnpm >/dev/null 2>&1; then
+    printf 'pnpm\n'
+    return
+  fi
+
+  if command -v vp >/dev/null 2>&1; then
+    printf 'vp\n'
+    return
+  fi
+
+  fail "neither corepack, pnpm, nor vp was found. Install/enable pnpm or source VitePlus first: source \"${VITE_PLUS_ENV:-${HOME}/.vite-plus/env}\""
+}
+
+run_install() {
+  local frontend_tool="$1"
+
+  case "${frontend_tool}" in
+    corepack) corepack pnpm install --frozen-lockfile ;;
+    pnpm) pnpm install --frozen-lockfile ;;
+    vp) vp install ;;
+    *) fail "unknown frontend tool: ${frontend_tool}" ;;
+  esac
+}
+
+run_frontend_build() {
+  local frontend_tool="$1"
+
+  case "${frontend_tool}" in
+    corepack) corepack pnpm --filter @nuclearplayer/player build:frontend ;;
+    pnpm) pnpm --filter @nuclearplayer/player build:frontend ;;
+    vp) vp run --filter @nuclearplayer/player build:frontend ;;
+    *) fail "unknown frontend tool: ${frontend_tool}" ;;
+  esac
+}
+
+require_runtime_tools() {
+  local frontend_tool="$1"
+
+  command -v git >/dev/null 2>&1 || fail 'git is required'
+  command -v cargo >/dev/null 2>&1 || fail 'cargo is required for the Rust release build'
+
+  if ! command -v docker >/dev/null 2>&1 && ! command -v podman >/dev/null 2>&1; then
+    fail 'Docker or Podman is required for the Arch package build container'
+  fi
+
+  printf 'Using frontend package tool: %s\n' "${frontend_tool}"
 }
 
 ensure_packaging_helpers() {
@@ -115,13 +267,36 @@ ensure_packaging_helpers() {
   done
 }
 
+print_failure_hint() {
+  local worktree_dir="$1"
+
+  cat >&2 <<HINT
+
+build-branch-arch-package: build failed.
+Worktree kept for inspection: ${worktree_dir}
+
+To retry in the same worktree:
+  .devcontainer/scripts/build-branch-arch-package.sh --reuse-existing ${branch_name}
+
+To remove the generated worktree and start clean:
+  git worktree remove ${worktree_dir}
+  .devcontainer/scripts/build-branch-arch-package.sh ${branch_name}
+HINT
+}
+
 if [[ -z "${branch_name}" ]]; then
   usage
   exit 2
 fi
 
+if [[ "${reuse_existing}" == true && "${replace_existing}" == true ]]; then
+  fail '--reuse-existing and --replace-existing cannot be used together'
+fi
+
 cd "${repo_root}"
 validate_branch_name "${branch_name}"
+frontend_tool="$(choose_frontend_tool)"
+require_runtime_tools "${frontend_tool}"
 worktree_name="$(worktree_name_for_branch "${branch_name}")"
 validate_worktree_name "${worktree_name}"
 worktree_dir="${worktree_root}/${worktree_name}"
@@ -131,23 +306,34 @@ require_repo_local_path "${worktree_root}" 'branch package worktree root'
 require_repo_local_path "${worktree_dir}" 'branch package worktree'
 
 if [[ -e "${worktree_dir}" ]]; then
-  fail "worktree already exists: ${worktree_dir}; inspect it or remove it with 'git worktree remove ${worktree_dir}' before rebuilding"
+  if [[ "${replace_existing}" == true ]]; then
+    git worktree remove "${worktree_dir}"
+  elif [[ "${reuse_existing}" == false ]]; then
+    fail "worktree already exists: ${worktree_dir}; rerun with --reuse-existing or remove it with 'git worktree remove ${worktree_dir}'"
+  fi
 fi
 
-mkdir -p "${worktree_root}"
-git worktree add --detach "${worktree_dir}" "${branch_ref}"
+if [[ ! -e "${worktree_dir}" ]]; then
+  mkdir -p "${worktree_root}"
+  git worktree add --detach "${worktree_dir}" "${branch_ref}"
+fi
+
 ensure_packaging_helpers "${worktree_dir}"
+trap 'print_failure_hint "${worktree_dir}"' ERR
 
 printf 'Building Arch package for branch %s in %s\n' "${branch_name}" "${worktree_dir}"
 
 (
   cd "${worktree_dir}"
-  corepack pnpm --filter @nuclearplayer/player build:frontend
+  run_install "${frontend_tool}"
+  run_frontend_build "${frontend_tool}"
   cargo build --release --manifest-path packages/player/src-tauri/Cargo.toml
   .devcontainer/scripts/export-linux-binary.sh
   .devcontainer/scripts/build-arch-package.sh
   .devcontainer/scripts/validate-arch-package.sh
 )
+
+trap - ERR
 
 cat <<RESULT
 Branch package build complete.
