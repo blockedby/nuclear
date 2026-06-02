@@ -71,3 +71,22 @@ Executor: slice owner, optionally acceptance auditor.
 
 ## Execution ledger
 - 2026-06-02: Worktree created from `origin/master`; task package and plan created.
+
+
+## Execution ledger update
+- 2026-06-02: Implementation completed directly by slice owner because nested `aad-implementer` dispatch was blocked by subagent depth. Added Linux-gated `mpris` Rust module using `mpris-server`, startup wiring in `lib.rs`, and tests for metadata fallback/status/control mapping.
+- 2026-06-02: Verification passed: `cargo test mpris -- --nocapture` and full `cargo test -- --nocapture` from `packages/player/src-tauri` with disposable `../dist/index.html` test fixture due embedded frontend assets requirement. Live playerctl/KDE Connect verification not run; manual steps recorded in `verification/local.md`.
+
+## Acceptance verification matrix
+- AC: MPRIS exposes track title/artist/album/artwork and fallbacks.
+  - Covered by: `mpris::tests::maps_complete_queue_item_to_mpris_metadata`, `mpris::tests::uses_fallbacks_for_incomplete_metadata`.
+  - Result: passed.
+- AC: MPRIS exposes playback status and basic controls mapped to existing playback actions.
+  - Covered by: `mpris::tests::maps_playback_statuses`, `mpris::tests::maps_controls_to_existing_bridge_methods`; code connects MPRIS callbacks to `Playback.*` and `Queue.*` bridge calls.
+  - Result: passed.
+- AC: Local tests/cargo evidence cover conversion/metadata/control paths where practical.
+  - Covered by: `cargo test mpris -- --nocapture` and `cargo test -- --nocapture`.
+  - Result: passed.
+- AC: Live desktop verification is provided or explicitly waived/limited.
+  - Covered by: `verification/local.md` waiver; `playerctl` unavailable and no live app session.
+  - Result: waived with manual next steps.

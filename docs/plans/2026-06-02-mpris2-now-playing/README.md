@@ -1,6 +1,6 @@
 # Arch Nuclear MPRIS2/KDE Connect PR (#2)
 
-- Status: planned
+- Status: implemented, pending PR
 - Owner: aad-slice-owner
 - Branch: roadmap/mpris2-now-playing
 - Worktree: /home/kcnc/code/apps/nuclear/.worktrees/roadmap-mpris2-now-playing
