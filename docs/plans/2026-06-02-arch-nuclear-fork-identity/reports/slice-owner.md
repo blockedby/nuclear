@@ -74,7 +74,7 @@
   - Full monorepo test/lint/build: not run; change scope is docs/scripts/workflow/package metadata and targeted checks covered acceptance.
 - Remote checks / CI:
   - Status: not checked; no PR opened, and workflow requires tag/manual dispatch.
-  - Evidence: branch pushed to origin.
+  - Evidence: branch pushed to origin; final pushed commit `49fc0be7212bb41aebccf274b4367cb09a19b753`.
 
 ## Issues
 - No `R-*`, `F-*`, or `U-*` issues required for this slice. Existing follow-up GitHub issues from root owner remain: #1 Wayland tray, #2 MPRIS2/KDE Connect, #3 release workflow, #4 identity cleanup.
@@ -87,7 +87,7 @@
 - Status: success.
 - Goal state: fully achieved for the scoped implementation slice.
 - Final readiness: ready for root owner integration/next decision; no upstream PR opened.
-- Summary: Fork identity, Arch package naming/binary Exec, docs, and release workflow were implemented, locally smoke-verified, committed, and pushed to `origin arch-nuclear-identity`.
+- Summary: Fork identity, Arch package naming/binary Exec, docs, and release workflow were implemented, locally smoke-verified, committed, and pushed to `origin arch-nuclear-identity` at `49fc0be7212bb41aebccf274b4367cb09a19b753`.
 
 ## Next-agent brief
 - Objective: If continuing, root owner may inspect pushed branch and decide whether to open a same-repo PR or merge per policy.
