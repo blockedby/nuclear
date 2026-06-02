@@ -71,3 +71,11 @@ usr/bin/nuclear-music-player-arch
 usr/share/applications/com.nuclearplayer.desktop
 usr/share/licenses/arch-nuclear-bin/LICENSE
 Exec=nuclear-music-player-arch %u
+
+### Git commit and initial push evidence
+Commit: 7354d4ae9d2bd7718e443aab30da7c17d11aaa88
+origin	https://github.com/blockedby/arch-nuclear.git (fetch)
+origin	https://github.com/blockedby/arch-nuclear.git (push)
+upstream	https://github.com/nukeop/nuclear.git (fetch)
+upstream	DISABLED (push)
+branch 'arch-nuclear-identity' set up to track 'origin/arch-nuclear-identity'.
