@@ -67,3 +67,10 @@ Executor:
 - Kept `synchronize` for CI and Coverage so ready PR pushes still run automatically. Draft gating avoids CI on work-in-progress pushes; excluding `synchronize` entirely would also skip CI on ready PR updates, which is riskier for normal review.
 - Added `workflow_dispatch` to CI and Coverage so manual runs remain available.
 - Release/tag workflows were left unchanged because they are not PR-triggered.
+
+## Final done-state
+- Status: success.
+- PR: https://github.com/blockedby/arch-nuclear/pull/9 (draft, base `master`, repo `blockedby/arch-nuclear`).
+- Head commit: `8f3e6c26e42c6f212712e72628f51ea9fff95955` before metadata-only task package update; latest branch commit may include this plan/README status update.
+- Remote status: `gh pr view` reports `isDraft: true`, `state: OPEN`, and empty `statusCheckRollup`, consistent with draft PR jobs being skipped/not required at creation time.
+- Issues: none blocking; no follow-up issue needed.
