@@ -4,7 +4,7 @@ TASK_PACKAGE: docs/plans/2026-06-02-desktop-smoke-test-kit
 REPORT_PATH: docs/plans/2026-06-02-desktop-smoke-test-kit/reports/aad-implementer-smoke-kit.md
 PROGRESS_PATH: docs/plans/2026-06-02-desktop-smoke-test-kit/progress/aad-implementer-smoke-kit.md
 COMMITS:
-- pending: implementation ready for local commit
+- 210ab2c6: Add desktop smoke test kit
 
 FILES_CHANGED:
 - `.devcontainer/scripts/build-branch-arch-package.sh`: Added safe branch package wrapper that creates ignored repo-local worktrees, validates branch/worktree names, resolves local/origin branch refs, runs frontend build, cargo release build, binary export, Arch package build, and package validation inside the branch worktree.

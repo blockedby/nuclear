@@ -12,3 +12,4 @@
 - 2026-06-02: Explicitly skipped frontend/cargo/package builds per delegated verification scope.
 - 2026-06-02: Preparing implementation commit with wrapper, smoke docs, and task package updates.
 - 2026-06-02: Final static verification pass before commit passed: shell syntax, unsafe branch rejection, docs grep, wrapper command/safety grep, and requested branch-name format checks.
+- 2026-06-02: Created implementation commit `210ab2c6 Add desktop smoke test kit`; updating report with commit metadata.
