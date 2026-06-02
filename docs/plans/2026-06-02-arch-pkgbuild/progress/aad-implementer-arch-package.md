@@ -12,3 +12,5 @@
 - 2026-06-02: Containerized synthetic makepkg passed after `makepkg -d`; inspected pkg.tar.zst contents and .PKGINFO for binary, desktop, icon, license, deps/provides/conflicts.
 - 2026-06-02: Wrote verification artifact `docs/plans/2026-06-02-arch-pkgbuild/verification/arch-package.md`; preparing final report and commit.
 - 2026-06-02: Staging Arch packaging workflow, docs, plan/progress, and verification evidence for implementation commit.
+- 2026-06-02: Created implementation commit `1aed60f8 Add Arch PKGBUILD workflow`; writing final report.
+- 2026-06-02: Final implementation report written to `docs/plans/2026-06-02-arch-pkgbuild/reports/aad-implementer-arch-package.md`; staging report/progress commit.
