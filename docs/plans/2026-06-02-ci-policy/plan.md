@@ -71,3 +71,9 @@ Executor:
 ## Execution ledger
 - PR #5-#8 converted to draft successfully on 2026-06-02 via `gh pr ready --undo`.
 - CI workflow update implemented on 2026-06-02: ordinary `ci` job no longer runs `pnpm build`; it runs lint, tests, type-check, player `build:frontend`, Rust `cargo check`, and Rust `cargo test`. Manual `production-build` job preserves `pnpm build` through `workflow_dispatch`. Static verification recorded in `verification/local.md`.
+
+## Final owner verification
+- PR #5-#8 draft conversion: passed via `gh pr view` after conversion.
+- PR #9: open draft at https://github.com/blockedby/arch-nuclear/pull/9, head `86c10b1fa47af23c8356341ffc102dbf804d67e0`.
+- Workflow static check: passed via Python YAML/policy assertion (`owner verification passed`).
+- Final report: `docs/plans/2026-06-02-ci-policy/final-report.md` and `/home/kcnc/code/tools/arch-nuclear-ci-policy-report.md`.
