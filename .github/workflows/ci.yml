@@ -5,6 +5,8 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+    types: [opened, reopened, synchronize, ready_for_review]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -15,6 +17,7 @@ env:
 
 jobs:
   ci:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
 
     steps:

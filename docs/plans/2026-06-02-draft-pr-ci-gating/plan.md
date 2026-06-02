@@ -57,3 +57,13 @@ Executor:
 ## Execution ledger
 - Created worktree `.worktrees/draft-pr-ci-gating` from `origin/master`.
 - Initial task package created.
+
+## Verification evidence
+- Local YAML syntax: passed via `python3`/PyYAML on `.github/workflows/*.yml`. See `verification/local.md`.
+- Workflow scope inspection: passed; only CI/Coverage PR workflows changed, release/tag/manual workflows preserved.
+- Documentation: README now records draft PR creation and ready-for-review commands for `blockedby/arch-nuclear` / `master`.
+
+## Tradeoffs recorded
+- Kept `synchronize` for CI and Coverage so ready PR pushes still run automatically. Draft gating avoids CI on work-in-progress pushes; excluding `synchronize` entirely would also skip CI on ready PR updates, which is riskier for normal review.
+- Added `workflow_dispatch` to CI and Coverage so manual runs remain available.
+- Release/tag workflows were left unchanged because they are not PR-triggered.

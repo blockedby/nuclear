@@ -159,6 +159,23 @@ pnpm install
 pnpm dev
 ```
 
+
+### Pull request workflow
+
+Create repository PRs as drafts by default so CI does not run for every small work-in-progress push:
+
+```bash
+gh pr create --repo blockedby/arch-nuclear --base master --head <branch> --draft --title "<title>" --body "<summary>"
+```
+
+When the branch is ready for review and CI, mark it ready:
+
+```bash
+gh pr ready --repo blockedby/arch-nuclear <pr-number-or-url>
+```
+
+The CI and Coverage workflows skip draft PR jobs and run for non-draft PRs, including when a draft is marked ready for review. Pushes to `master`, release/tag workflows, and manual workflow dispatches remain available. Ready PRs still run on synchronized branch pushes; keep a PR in draft while iterating if you want to avoid CI on every small push.
+
 ### Useful commands
 
 ```bash
