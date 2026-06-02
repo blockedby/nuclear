@@ -56,8 +56,8 @@
   <launchable type="desktop-id">com.nuclearplayer.Nuclear.desktop</launchable>
 
   <url type="homepage">https://nuclearplayer.com</url>
-  <url type="bugtracker">https://github.com/nukeop/nuclear/issues</url>
-  <url type="vcs-browser">https://github.com/nukeop/nuclear</url>
+  <url type="bugtracker">https://github.com/blockedby/arch-nuclear/issues</url>
+  <url type="vcs-browser">https://github.com/blockedby/arch-nuclear</url>
 
   <branding>
     <color type="primary" scheme_preference="light">#B7C3E6</color>
