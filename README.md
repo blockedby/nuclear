@@ -174,7 +174,11 @@ When the branch is ready for review and CI, mark it ready:
 gh pr ready --repo blockedby/arch-nuclear <pr-number-or-url>
 ```
 
-The CI and Coverage workflows skip draft PR jobs and run for non-draft PRs, including when a draft is marked ready for review. Pushes to `master`, release/tag workflows, and manual workflow dispatches remain available. Ready PRs still run on synchronized branch pushes; keep a PR in draft while iterating if you want to avoid CI on every small push.
+The CI workflow skips draft PR jobs and runs for non-draft PRs, including when a draft is marked ready for review. Ready PRs still run on synchronized branch pushes; keep a PR in draft while iterating if you want to avoid CI on every small push.
+
+Ordinary PR CI intentionally avoids full Tauri production bundling. It runs lint, tests, type-check, the player frontend build, and Rust check/test. Full `pnpm build` / `tauri build` belongs to manual pre-release validation or release workflows.
+
+Coverage/Codecov is manual-only in this fork unless a maintainer explicitly enables the required token and accepts the CI cost.
 
 ### Useful commands
 
