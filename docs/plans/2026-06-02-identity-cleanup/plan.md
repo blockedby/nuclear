@@ -62,3 +62,10 @@ Kept as one slice; no sub-slices. Task 2 waits for Task 1. No implementer dispat
 - Keep `productName: Nuclear`, Tauri `identifier: com.nuclearplayer`, upstream desktop source id/icon/title, and upstream-style binary name in Tauri config for now. Changing these can affect app id, settings/cache locations, desktop integration, icons, and update identity, so it needs an explicit migration plan.
 - Keep Arch-specific package identity at packaging layer: `arch-nuclear-bin`, `/usr/bin/nuclear-music-player-arch`, patched Arch desktop `Exec`, and icon aliases.
 - Align fork-owned release/support metadata that does not change local data paths: updater endpoint, Cargo repository, AppStream bugtracker, and AppStream VCS URL.
+- 2026-06-02: Committed `3757813a` and opened PR https://github.com/blockedby/arch-nuclear/pull/6 to `blockedby/arch-nuclear:master`.
+
+## PR evidence
+- PR: https://github.com/blockedby/arch-nuclear/pull/6
+- Base/head: `master` <- `roadmap/identity-cleanup`
+- Commit: `3757813a8fcd18f7f9dd55ba992de6ac16bd188a`
+- Initial remote checks at creation: CI, Coverage, and Close external PRs in progress.
