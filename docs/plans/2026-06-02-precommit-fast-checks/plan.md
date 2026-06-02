@@ -79,3 +79,5 @@ Status:
 - 2026-06-02: Initial plan ready; implementation task pending dispatch.
 - 2026-06-02: Implementer changed `.husky/pre-commit` from `npx lint-staged` to `pnpm exec lint-staged`, documented hook installation/check policy in `README.md`, and wrote local verification evidence to `verification/local.md`.
 - 2026-06-02: Verification limitation: `pnpm exec lint-staged --help` and `--debug` could not run because `pnpm` is unavailable in PATH; static shell/config checks passed and no global tools were installed.
+
+- 2026-06-02: Draft PR opened at https://github.com/blockedby/arch-nuclear/pull/10 targeting `blockedby/arch-nuclear:master`.
