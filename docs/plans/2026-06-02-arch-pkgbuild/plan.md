@@ -63,3 +63,10 @@ Executor:
 ## Execution ledger
 - 2026-06-02: Owner created worktree/branch arch-pkgbuild-support and task package.
 - 2026-06-02: Implementer added `.devcontainer/arch-package/PKGBUILD`, `.devcontainer/scripts/build-arch-package.sh`, Arch package docs, and verification artifact. Syntax and missing-binary checks passed. Containerized `makepkg` was verified with an ignored synthetic executable because no real exported release binary was present; package contents and `.PKGINFO` were inspected.
+- 2026-06-02: Implementer added PKGBUILD, container helper, docs, and verification report. Owner reran script syntax, version consistency, and package content checks against the synthetic package artifact; passed. Real release binary package build remains unverified because no release binary artifact exists locally.
+
+## Final done-state
+- Spec compliance: achieved for repo-local Arch packaging workflow; no AppImage dependency; no upstream PR opened.
+- Acceptance verification: passed targeted checks in `verification/arch-package.md` including containerized makepkg mechanics with a synthetic executable and package content inspection.
+- System readiness: ready to build a real package once a real plain release binary is generated/exported with the existing workflow.
+- Limitations: no real Nuclear binary package artifact was built in this run; synthetic package artifact proves packaging mechanics only.

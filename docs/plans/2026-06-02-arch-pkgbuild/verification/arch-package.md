@@ -144,3 +144,25 @@ Result: skipped; `shellcheck not installed; skipped`.
 
 - A real `artifacts/linux-arch-bin/nuclear-music-player` release binary was not present, and `packages/player/src-tauri/target/release/nuclear-music-player` was also absent, so the successful package build used a synthetic executable only to prove helper/PKGBUILD mechanics and package contents.
 - The generated package artifact under `artifacts/arch-package-test/` is ignored by git and should not be treated as a real Nuclear package.
+
+## Owner final verification
+
+Fresh owner checks after implementer commits:
+
+```bash
+bash -n .devcontainer/scripts/export-linux-binary.sh .devcontainer/scripts/build-arch-package.sh
+node <<'EOF_NODE'
+const fs = require('fs');
+const pkg = require('./packages/player/package.json');
+const tauri = require('./packages/player/src-tauri/tauri.conf.json');
+const pkgbuild = fs.readFileSync('.devcontainer/arch-package/PKGBUILD', 'utf8');
+const match = pkgbuild.match(/^pkgver=(.+)$/m);
+if (!match || match[1] !== pkg.version || match[1] !== tauri.version) process.exit(1);
+console.log('version ok ' + match[1]);
+EOF_NODE
+pkg=artifacts/arch-package-test/out/packages/nuclear-player-bin-1.39.0-1-x86_64.pkg.tar.zst
+test -f "$pkg"
+tar -tf "$pkg" | grep -E '(^usr/bin/nuclear-music-player$|^usr/share/applications/com\.nuclearplayer\.Nuclear\.desktop$|^usr/share/icons/hicolor/512x512/apps/com\.nuclearplayer\.Nuclear\.png$)'
+```
+
+Result: passed. Output included `version ok 1.39.0` and package paths for binary, desktop file, and icon.
