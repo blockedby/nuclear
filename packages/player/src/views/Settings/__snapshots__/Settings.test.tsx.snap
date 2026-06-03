@@ -516,23 +516,6 @@ exports[`Settings view > (Snapshot) renders the settings view 1`] = `
                                   Hide the native title bar. Drag the top bar to move the window.
                                 </p>
                               </div>
-                            </div>
-                          </div>
-                        </section>
-                        <section
-                          class="mb-6 flex w-full flex-col items-start justify-start"
-                        >
-                          <h2
-                            class="mb-3 flex w-full flex-0 flex-row text-left text-2xl font-bold"
-                          >
-                            General
-                          </h2>
-                          <div
-                            class="flex w-full flex-1 flex-col"
-                          >
-                            <div
-                              class="flex flex-col gap-6"
-                            >
                               <div
                                 class="flex flex-col gap-2"
                               >
@@ -540,10 +523,11 @@ exports[`Settings view > (Snapshot) renders the settings view 1`] = `
                                   class="flex items-center gap-3"
                                 >
                                   <button
-                                    aria-checked="false"
+                                    aria-checked="true"
                                     aria-label="Close to tray"
                                     class="border-border relative inline-flex h-6 w-11 cursor-pointer items-center rounded-full border-(length:--border-width) transition-all focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-none data-checked:bg-primary bg-white data-disabled:cursor-not-allowed data-disabled:opacity-50 group"
-                                    data-headlessui-state=""
+                                    data-checked=""
+                                    data-headlessui-state="checked"
                                     id="headlessui-switch-:rc:"
                                     role="switch"
                                     tabindex="0"
@@ -597,6 +581,23 @@ exports[`Settings view > (Snapshot) renders the settings view 1`] = `
                                   Hide the window to the system tray when it is minimized.
                                 </p>
                               </div>
+                            </div>
+                          </div>
+                        </section>
+                        <section
+                          class="mb-6 flex w-full flex-col items-start justify-start"
+                        >
+                          <h2
+                            class="mb-3 flex w-full flex-0 flex-row text-left text-2xl font-bold"
+                          >
+                            General
+                          </h2>
+                          <div
+                            class="flex w-full flex-1 flex-col"
+                          >
+                            <div
+                              class="flex flex-col gap-6"
+                            >
                               <div
                                 class="relative flex w-full flex-col gap-2"
                               >

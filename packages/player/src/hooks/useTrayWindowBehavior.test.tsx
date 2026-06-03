@@ -1,6 +1,7 @@
 import { renderHook, waitFor } from '@testing-library/react';
 import { beforeEach, expect, it, vi } from 'vitest';
 
+import { registerBuiltInCoreSettings } from '../services/coreSettings';
 import { initializeSettingsStore, setSetting } from '../stores/settingsStore';
 import { resetInMemoryTauriStore } from '../test/utils/inMemoryTauriStore';
 import { useTrayWindowBehavior } from './useTrayWindowBehavior';
@@ -34,9 +35,23 @@ beforeEach(async () => {
   windowMock.isMinimized.mockResolvedValue(false);
   resetInMemoryTauriStore();
   await initializeSettingsStore();
+  registerBuiltInCoreSettings();
+});
+
+it('hides the window on close by default', async () => {
+  renderHook(() => useTrayWindowBehavior());
+
+  await waitFor(() => expect(windowMock.closeHandler).toBeDefined());
+  const preventDefault = vi.fn();
+  await windowMock.closeHandler?.({ preventDefault });
+
+  expect(preventDefault).toHaveBeenCalledTimes(1);
+  expect(windowMock.hide).toHaveBeenCalledTimes(1);
 });
 
 it('does not intercept close or minimize when tray settings are disabled', async () => {
+  await setSetting('core.window.closeToTray', false);
+
   renderHook(() => useTrayWindowBehavior());
 
   await waitFor(() => expect(windowMock.closeHandler).toBeDefined());
@@ -47,19 +62,6 @@ it('does not intercept close or minimize when tray settings are disabled', async
 
   expect(preventDefault).not.toHaveBeenCalled();
   expect(windowMock.hide).not.toHaveBeenCalled();
-});
-
-it('hides the window on close when close to tray is enabled', async () => {
-  await setSetting('core.window.closeToTray', true);
-
-  renderHook(() => useTrayWindowBehavior());
-
-  await waitFor(() => expect(windowMock.closeHandler).toBeDefined());
-  const preventDefault = vi.fn();
-  await windowMock.closeHandler?.({ preventDefault });
-
-  expect(preventDefault).toHaveBeenCalledTimes(1);
-  expect(windowMock.hide).toHaveBeenCalledTimes(1);
 });
 
 it('hides the window after minimize when minimize to tray is enabled', async () => {

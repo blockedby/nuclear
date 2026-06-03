@@ -16,9 +16,12 @@ describe('Settings view', async () => {
     expect(getByRole('dialog')).toMatchSnapshot();
   });
 
-  it('shows tray window behavior settings in General preferences', async () => {
-    const { getByText } = await SettingsWrapper.mount();
+  it('shows tray window behavior settings with appearance preferences', async () => {
+    const { getByRole, getByText } = await SettingsWrapper.mount();
 
+    expect(
+      getByRole('heading', { name: 'Appearance', level: 2 }),
+    ).toBeInTheDocument();
     expect(getByText('Close to tray')).toBeInTheDocument();
     expect(getByText('Minimize to tray')).toBeInTheDocument();
     expect(
