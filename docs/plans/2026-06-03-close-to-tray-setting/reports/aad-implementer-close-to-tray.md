@@ -5,6 +5,10 @@ REPORT_PATH: docs/plans/2026-06-03-close-to-tray-setting/reports/aad-implementer
 PROGRESS_PATH: docs/plans/2026-06-03-close-to-tray-setting/progress/aad-implementer-close-to-tray.md
 COMMITS:
 - 08bbd707783208849da3c6c457c8ea04b4a204c3: Add close to tray setting default
+- 21d58e66: Add close to tray implementation report
+PUSHED_BRANCH_STATUS:
+- `git push origin roadmap/wayland-tray-options` succeeded; branch advanced from `e3d486ec` to `21d58e66` on `origin/roadmap/wayland-tray-options`.
+- PR #8 was kept draft; no upstream/nukeop remote operation was performed.
 FILES_CHANGED:
 - packages/player/src/services/coreSettings.ts: set `window.closeToTray` default to enabled and place close/minimize tray toggles in the Appearance settings category.
 - packages/player/src/hooks/useTrayWindowBehavior.test.tsx: added default-enabled close-to-tray behavior coverage and explicit disabled close/minimize no-hide coverage while preserving minimize-to-tray regression coverage.
@@ -41,4 +45,4 @@ QUALITY_NOTES:
 SIDE_FINDINGS:
 - Blocking: none.
 - Non-blocking follow-up candidates: direct `pnpm` is not on PATH in this shell; `corepack pnpm` worked. `.pnpm-store/` was already untracked and left untouched.
-NOTES: Implementation committed locally. Push to `origin/roadmap/wayland-tray-options` is planned after committing this report; PR #8 should remain draft. GUI smoke was not run by implementer; recommended manual steps are in `verification/local.md`.
+NOTES: Implementation and report commits were pushed to `origin/roadmap/wayland-tray-options`; PR #8 should remain draft. GUI smoke was not run by implementer; recommended manual steps are in `verification/local.md`.
