@@ -54,4 +54,4 @@ Usage:
 - AC3 rootless Podman workflow files exist and are clear enough for branch smoke: passed by `tools/podman-gui/Containerfile`, `tools/podman-gui/Podmanfile`, `tools/podman-gui/podman-gui-smoke`, script syntax, and static grep.
 - AC4 docs include exact short user commands and limitations/security model: passed by `docs/development/rootless-podman-gui-smoke.md`.
 - AC5 static verification run and recorded: passed by this file.
-- AC6 draft PR URL produced: pending until push/PR creation.
+- AC6 draft PR URL produced: passed; draft PR <https://github.com/blockedby/arch-nuclear/pull/12> opened against `master`.

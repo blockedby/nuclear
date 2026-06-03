@@ -38,9 +38,9 @@
   - Evidence: `verification/local.md`.
   - Gap if any: runtime checks skipped by scope.
 - AC6 draft PR URL produced.
-  - Status: pending until push/PR step completes.
-  - Evidence: pending.
-  - Gap if any: owner still must commit/push/create draft PR.
+  - Status: done.
+  - Evidence: draft PR <https://github.com/blockedby/arch-nuclear/pull/12>; commit `a16c019e`.
+  - Gap if any: none.
 
 ## Acceptance verification
 - AC1: repo-local PR #8 smoke result/evidence exists and blocks merge.
@@ -64,9 +64,9 @@
   - Result: passed.
   - Evidence: `verification/local.md`.
 - AC6: draft PR URL produced.
-  - Covered by: pending `gh pr create/view` after push.
-  - Result: not run yet.
-  - Evidence: pending.
+  - Covered by: `gh pr create` / `gh pr view` after push.
+  - Result: passed.
+  - Evidence: draft PR <https://github.com/blockedby/arch-nuclear/pull/12>; `gh pr view 12 --json url,isDraft,state,headRefName,baseRefName` showed draft/open targeting `master`.
 
 ## System readiness
 - Routes / registration: not relevant.
@@ -87,7 +87,8 @@
 - Local / full checks:
   - `pnpm build` / `tauri build` / GUI run: not run; explicitly out of scope/unsafe-expensive for this static workflow slice.
 - Remote checks / CI:
-  - Status: not available before branch push/PR.
+  - Status: draft PR open; no CI readiness claimed.
+  - Evidence: <https://github.com/blockedby/arch-nuclear/pull/12> is draft.
 
 ## Issues
 ### Issue R-01: Missing rootless Podman GUI smoke workflow
@@ -114,15 +115,15 @@
 - Non-blocking findings tracked separately: none created; PR #8 remains the existing tracking artifact for the tray fix.
 
 ## Verdict
-- Status: partial until PR creation; local implementation/verification complete.
-- Goal state: tooling/docs/evidence achieved locally; branch publication pending.
-- Final readiness: ready for commit/push/draft PR, with runtime image/GUI validation explicitly deferred.
-- Summary: Rootless Podman workflow and PR #8 evidence are in place with static verification; final PR publication remains.
+- Status: success.
+- Goal state: achieved for static tooling/docs/evidence slice.
+- Final readiness: draft PR ready for maintainer/user review; runtime image/GUI validation explicitly deferred.
+- Summary: Rootless Podman workflow and PR #8 evidence are committed and pushed on `podman-gui-smoke-workflow`; draft PR #12 is open.
 
 ## Next-agent brief
-- Objective: commit, push `podman-gui-smoke-workflow`, open/update draft PR to `blockedby/arch-nuclear` `master`, then update this report with PR URL/commit.
-- Target: current worktree/branch only.
-- Settled already: no product-code changes; static verification only; PR #8 remains draft/block merge.
-- Boundaries: do not mark PR ready, do not run expensive builds/GUI, do not open upstream PRs.
-- Verification target: `git status`, commit hash, `gh pr view/create` draft URL.
-- Expected output: final report with PR URL, commit, files changed.
+- Objective: if continuing, manually build/run the Podman workflow in a target Wayland session and/or start a dedicated PR #8 fix pass.
+- Target: PR #12 for workflow validation; PR #8 / `roadmap/wayland-tray-options` for product behavior fix.
+- Settled already: no product-code changes in PR #12; PR #8 remains draft/block merge.
+- Boundaries: do not mark draft PRs ready until requested and verified; avoid host installs/expensive builds unless explicitly chosen.
+- Verification target: image build and live Wayland smoke for the workflow; dedicated close/minimize behavior evidence for PR #8.
+- Expected output: manual smoke evidence and any needed follow-up fix report.

@@ -184,3 +184,6 @@ Executor:
 
 - 2026-06-03: Root worktree already exists at `/home/kcnc/code/apps/nuclear/.worktrees/podman-gui-smoke-workflow` on branch `podman-gui-smoke-workflow` from `origin/master`; no new worktree created.
 - 2026-06-03: Task package exists; plan expanded and marked ready for implementation dispatch.
+- 2026-06-03: Implementer delegation was unavailable due current subagent nesting limit, so slice owner completed tooling/docs/evidence directly within the delegated worktree.
+- 2026-06-03: Static verification passed and recorded in `verification/local.md`.
+- 2026-06-03: Committed `a16c019e` (`Add rootless Podman GUI smoke workflow`), pushed branch, and opened draft PR <https://github.com/blockedby/arch-nuclear/pull/12>.

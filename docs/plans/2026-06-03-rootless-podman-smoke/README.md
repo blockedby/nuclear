@@ -1,11 +1,11 @@
 # Rootless Podman GUI smoke workflow
 
-- Status: verification complete locally; draft PR pending
+- Status: pushed; draft PR open
 - Owner: aad-slice-owner
 - Implementation slice: Podman GUI dev/smoke workflow
 - Branch: podman-gui-smoke-workflow
 - Worktree: /home/kcnc/code/apps/nuclear/.worktrees/podman-gui-smoke-workflow
-- PR: pending
+- PR: https://github.com/blockedby/arch-nuclear/pull/12
 
 ## User commands
 
