@@ -36,3 +36,12 @@ Not run by implementer (no GUI smoke in this scope). Recommended smoke based on 
 6. Disable Close to tray.
 7. Click the window X again and confirm the app closes normally instead of hiding.
 8. If Minimize to tray is enabled, minimize the window and confirm it still hides to tray.
+
+## Owner fresh verification
+
+- `corepack pnpm --dir packages/player exec vitest --run src/hooks/useTrayWindowBehavior.test.tsx src/views/Settings/Settings.test.tsx`
+  - Result: passed, 2 files / 5 tests.
+- `corepack pnpm --dir packages/player exec eslint src/services/coreSettings.ts src/hooks/useTrayWindowBehavior.test.tsx src/views/Settings/Settings.test.tsx`
+  - Result: passed, no output.
+- `gh pr view 8 --repo blockedby/arch-nuclear --json isDraft,headRefName,url`
+  - Result: PR #8 is draft, head branch `roadmap/wayland-tray-options`.

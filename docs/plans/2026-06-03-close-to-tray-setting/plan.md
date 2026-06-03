@@ -96,3 +96,18 @@ Executor:
 - Task 1 -> aad-implementer, report `reports/aad-implementer-close-to-tray.md`, progress `progress/aad-implementer-close-to-tray.md`.
 - Final owner verification after implementation report.
 
+
+## Final owner ledger
+
+Status: done locally and pushed.
+
+Acceptance verification:
+- Settings checkbox and i18n copy visible in Appearance settings: covered by `src/views/Settings/Settings.test.tsx`, passed in owner fresh Vitest run.
+- Default close-to-tray enabled for fork/tray behavior: `packages/player/src/services/coreSettings.ts` default `true`; covered by `hides the window on close by default`, passed.
+- Enabled close request prevents close and hides: covered by hook test, passed.
+- Disabled close request allows normal close: covered by hook test, passed.
+- Minimize-to-tray not regressed: covered by hook test, passed.
+
+Verification evidence: `verification/local.md`.
+Implementation report: `reports/aad-implementer-close-to-tray.md`.
+Open issues: none blocking; no follow-up GitHub issues required.
