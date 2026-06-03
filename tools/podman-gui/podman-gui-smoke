@@ -51,11 +51,27 @@ add_read_only_mount_if_present() {
   fi
 }
 
+create_runtime_home() {
+  mktemp -d "${TMPDIR:-/tmp}/arch-nuclear-home.XXXXXX"
+}
+
+prepare_runtime_home() {
+  local runtime_home="$1"
+
+  mkdir -p \
+    "$runtime_home/.cache/node/corepack" \
+    "$runtime_home/.cargo" \
+    "$runtime_home/.config" \
+    "$runtime_home/.local/share"
+}
+
 podman_mount_args() {
+  local runtime_home="$1"
   local -a args=()
 
   args+=(--volume "$REPO_ROOT:$WORKSPACE")
   args+=(--workdir "$WORKSPACE")
+  args+=(--volume "$runtime_home:/tmp/arch-nuclear-home:rw")
   args+=(--env "HOME=/tmp/arch-nuclear-home")
   args+=(--env "CARGO_HOME=/tmp/arch-nuclear-home/.cargo")
   args+=(--env "RUSTUP_HOME=/opt/rustup")
@@ -120,21 +136,29 @@ run_container() {
   local branch="$1"
   shift
   local command_text="$1"
-  local -a mount_args=()
-  mapfile -d '' -t mount_args < <(podman_mount_args)
+  local runtime_home
+  runtime_home="$(create_runtime_home)"
+  prepare_runtime_home "$runtime_home"
 
-  local setup="mkdir -p /tmp/arch-nuclear-home"
+  local -a mount_args=()
+  mapfile -d '' -t mount_args < <(podman_mount_args "$runtime_home")
+
+  local setup="test -w /tmp/arch-nuclear-home"
   if [[ -n "$branch" ]]; then
     setup+=" && git fetch origin --prune && git checkout $(printf '%q' "$branch")"
   fi
 
+  local status=0
   podman run --rm -it \
     --userns keep-id \
     --security-opt label=disable \
     --ipc host \
     "${mount_args[@]}" \
     "$IMAGE_NAME" \
-    bash -lc "$setup && $command_text"
+    bash -lc "$setup && $command_text" || status=$?
+
+  rm -rf "$runtime_home"
+  return "$status"
 }
 
 command_name="${1:-}"
