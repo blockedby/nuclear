@@ -31,7 +31,7 @@
 - AC3: PR #8 branch contains latest master without force push and remains draft.
   - Covered by: merge/push output and PR metadata.
   - Result: passed.
-  - Evidence: normal push `f4e1531b..1987bb64 roadmap/wayland-tray-options -> roadmap/wayland-tray-options`; PR metadata above.
+  - Evidence: normal pushes `f4e1531b..1987bb64` and `1987bb64..f93d9a05` to `roadmap/wayland-tray-options`; PR metadata above.
 
 ## System readiness
 - Runtime wiring: ready for the requested smoke path.
@@ -48,7 +48,7 @@
   - Same three commands, from `.worktrees/roadmap-wayland-tray-options`.
 - Git/remote checks: passed.
   - `origin/master` at `c4bb32adc013ed11631aad2382d764655e2a166c`.
-  - `origin/roadmap-wayland-tray-options` at `1987bb64a7f84559fb8edf4905825e2a01eb1551`.
+  - `origin/roadmap-wayland-tray-options` at `f93d9a054a6a79e07e58e7a8980d0305551b042c`.
 - Remote CI: not checked/none required; PR #8 remains draft and user requested lightweight checks.
 
 ## Issues
