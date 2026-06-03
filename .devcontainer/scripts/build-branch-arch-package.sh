@@ -22,7 +22,7 @@ Examples:
   .devcontainer/scripts/build-branch-arch-package.sh --replace-existing roadmap/wayland-tray-options
 
 Creates an ignored repo-local worktree under artifacts/branch-arch-package/worktrees,
-then runs dependency install, frontend build, Rust release build, binary export,
+then runs dependency install, Tauri build without bundling, binary export,
 Arch package build, and package validation inside that worktree.
 
 Existing generated smoke worktrees are reused by default. Use --replace-existing
@@ -216,13 +216,13 @@ run_install() {
   esac
 }
 
-run_frontend_build() {
+run_tauri_build_no_bundle() {
   local frontend_tool="$1"
 
   case "${frontend_tool}" in
-    corepack) corepack pnpm --filter @nuclearplayer/player build:frontend ;;
-    pnpm) pnpm --filter @nuclearplayer/player build:frontend ;;
-    vp) vp run --filter @nuclearplayer/player build:frontend ;;
+    corepack) corepack pnpm --filter @nuclearplayer/player exec tauri build --no-bundle ;;
+    pnpm) pnpm --filter @nuclearplayer/player exec tauri build --no-bundle ;;
+    vp) vp run --filter @nuclearplayer/player tauri build --no-bundle ;;
     *) fail "unknown frontend tool: ${frontend_tool}" ;;
   esac
 }
@@ -324,8 +324,7 @@ printf 'Building Arch package for branch %s in %s\n' "${branch_name}" "${worktre
 (
   cd "${worktree_dir}"
   run_install "${frontend_tool}"
-  run_frontend_build "${frontend_tool}"
-  cargo build --release --manifest-path packages/player/src-tauri/Cargo.toml
+  run_tauri_build_no_bundle "${frontend_tool}"
   .devcontainer/scripts/export-linux-binary.sh
   .devcontainer/scripts/build-arch-package.sh
   .devcontainer/scripts/validate-arch-package.sh

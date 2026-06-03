@@ -101,13 +101,14 @@ Inside each worktree it runs:
 ```bash
 # frontend tool can be corepack pnpm, pnpm, or VitePlus vp
 <pnpm-tool> install --frozen-lockfile
-<pnpm-tool> --filter @nuclearplayer/player build:frontend
-cargo build --release --manifest-path packages/player/src-tauri/Cargo.toml
-# export copies target/release/player (plain cargo) or target/release/nuclear-music-player (Tauri-renamed) to nuclear-music-player-arch
+<pnpm-tool> --filter @nuclearplayer/player exec tauri build --no-bundle
+# export copies target/release/nuclear-music-player to nuclear-music-player-arch
 .devcontainer/scripts/export-linux-binary.sh
 .devcontainer/scripts/build-arch-package.sh
 .devcontainer/scripts/validate-arch-package.sh
 ```
+
+`tauri build --no-bundle` still builds the real Tauri app binary and embeds the production frontend. It only skips Tauri's installer/bundle step (`.deb`, `.rpm`, `.AppImage`, updater signing). The Arch package is produced by our PKGBUILD in the next step.
 
 Package outputs stay inside the corresponding branch worktree:
 
