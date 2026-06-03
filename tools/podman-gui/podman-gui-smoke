@@ -42,6 +42,15 @@ shell_quote_args() {
   printf '%q ' "$@"
 }
 
+add_read_only_mount_if_present() {
+  local host_path="$1"
+  local container_path="$2"
+
+  if [[ -e "$host_path" ]]; then
+    printf '%s\0' --volume "$host_path:$container_path:ro"
+  fi
+}
+
 podman_mount_args() {
   local -a args=()
 
@@ -57,6 +66,13 @@ podman_mount_args() {
   args+=(--env "DBUS_SESSION_BUS_ADDRESS=${DBUS_SESSION_BUS_ADDRESS:-}")
   args+=(--env "PULSE_SERVER=${PULSE_SERVER:-}")
   args+=(--env "PIPEWIRE_REMOTE=${PIPEWIRE_REMOTE:-}")
+  args+=(--env "XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP:-}")
+  args+=(--env "XDG_SESSION_DESKTOP=${XDG_SESSION_DESKTOP:-}")
+  args+=(--env "DESKTOP_SESSION=${DESKTOP_SESSION:-}")
+  args+=(--env "KDE_SESSION_VERSION=${KDE_SESSION_VERSION:-}")
+  args+=(--env "QT_QPA_PLATFORMTHEME=${QT_QPA_PLATFORMTHEME:-}")
+  args+=(--env "GTK_THEME=${GTK_THEME:-}")
+  args+=(--env "ICON_THEME=${ICON_THEME:-}")
   args+=(--env "GDK_BACKEND=${GDK_BACKEND:-wayland,x11}")
   args+=(--env "WEBKIT_DISABLE_DMABUF_RENDERER=${WEBKIT_DISABLE_DMABUF_RENDERER:-1}")
 
@@ -74,6 +90,19 @@ podman_mount_args() {
       args+=(--volume "$dbus_path:$dbus_path")
     fi
   fi
+
+  local -a desktop_mount_args=()
+  mapfile -d '' -t desktop_mount_args < <(
+    add_read_only_mount_if_present "$HOME/.config/gtk-3.0" "/tmp/arch-nuclear-home/.config/gtk-3.0"
+    add_read_only_mount_if_present "$HOME/.config/gtk-4.0" "/tmp/arch-nuclear-home/.config/gtk-4.0"
+    add_read_only_mount_if_present "$HOME/.config/kdeglobals" "/tmp/arch-nuclear-home/.config/kdeglobals"
+    add_read_only_mount_if_present "$HOME/.config/Kvantum" "/tmp/arch-nuclear-home/.config/Kvantum"
+    add_read_only_mount_if_present "$HOME/.local/share/icons" "/tmp/arch-nuclear-home/.local/share/icons"
+    add_read_only_mount_if_present "$HOME/.local/share/fonts" "/tmp/arch-nuclear-home/.local/share/fonts"
+    add_read_only_mount_if_present "$HOME/.icons" "/tmp/arch-nuclear-home/.icons"
+    add_read_only_mount_if_present "$HOME/.themes" "/tmp/arch-nuclear-home/.themes"
+  )
+  args+=("${desktop_mount_args[@]}")
 
   if [[ -n "${XAUTHORITY:-}" && -f "${XAUTHORITY:-}" ]]; then
     args+=(--env "XAUTHORITY=$XAUTHORITY")
