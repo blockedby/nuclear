@@ -151,7 +151,7 @@ case "$command_name" in
     ;;
   dev)
     require_podman
-    run_container "$branch" "corepack pnpm install && cd packages/player && corepack pnpm dev"
+    run_container "$branch" "corepack pnpm install && corepack pnpm --filter @nuclearplayer/player build:frontend && cd packages/player && corepack pnpm dev"
     ;;
   check)
     require_podman
