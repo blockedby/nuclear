@@ -15,4 +15,22 @@ describe('Settings view', async () => {
     const { getByRole } = await SettingsWrapper.mount();
     expect(getByRole('dialog')).toMatchSnapshot();
   });
+
+  it('shows tray window behavior settings with appearance preferences', async () => {
+    const { getByRole, getByText } = await SettingsWrapper.mount();
+
+    expect(
+      getByRole('heading', { name: 'Appearance', level: 2 }),
+    ).toBeInTheDocument();
+    expect(getByText('Close to tray')).toBeInTheDocument();
+    expect(getByText('Minimize to tray')).toBeInTheDocument();
+    expect(
+      getByText(
+        'Keep Nuclear running in the system tray when the window is closed. Use Quit from the tray menu to exit.',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      getByText('Hide the window to the system tray when it is minimized.'),
+    ).toBeInTheDocument();
+  });
 });

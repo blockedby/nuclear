@@ -274,6 +274,16 @@
         "description": "Select your preferred language"
       }
     },
+    "window": {
+      "closeToTray": {
+        "title": "Close to tray",
+        "description": "Keep Nuclear running in the system tray when the window is closed. Use Quit from the tray menu to exit."
+      },
+      "minimizeToTray": {
+        "title": "Minimize to tray",
+        "description": "Hide the window to the system tray when it is minimized."
+      }
+    },
     "plugins": {
       "title": "Plugins",
       "auto-update": {
