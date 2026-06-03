@@ -16,7 +16,7 @@
 - Read-only desktop integration mounts still work: done.
   - Evidence: existing GTK/KDE/Kvantum/icon/font/theme mounts still route through `add_read_only_mount_if_present`, which emits `:ro`, under `/tmp/arch-nuclear-home`.
 - PR #8 updated with latest master and kept draft: done.
-  - Evidence: `gh pr view 8 --repo blockedby/arch-nuclear --json ...` showed `isDraft:true`, `state:OPEN`, `headRefName:roadmap/wayland-tray-options`, `baseRefName:master`, `headRefOid:1987bb64a7f84559fb8edf4905825e2a01eb1551`.
+  - Evidence: latest `gh pr view 8 --repo blockedby/arch-nuclear --json ...` showed `isDraft:true`, `state:OPEN`, `headRefName:roadmap/wayland-tray-options`, `baseRefName:master`, `headRefOid:c73fa7dea8931ff3d85e660190256980746f0813`.
 - Avoid upstream `nukeop`: done.
   - Evidence: only pushed to `origin` (`blockedby/arch-nuclear`); no upstream push commands run.
 
@@ -31,7 +31,7 @@
 - AC3: PR #8 branch contains latest master without force push and remains draft.
   - Covered by: merge/push output and PR metadata.
   - Result: passed.
-  - Evidence: normal pushes `f4e1531b..1987bb64` and `1987bb64..f93d9a05` to `roadmap/wayland-tray-options`; PR metadata above.
+  - Evidence: normal pushes `f4e1531b..1987bb64`, `1987bb64..f93d9a05`, and `f93d9a05..c73fa7de` to `roadmap/wayland-tray-options`; PR metadata above.
 
 ## System readiness
 - Runtime wiring: ready for the requested smoke path.
@@ -48,7 +48,7 @@
   - Same three commands, from `.worktrees/roadmap-wayland-tray-options`.
 - Git/remote checks: passed.
   - `origin/master` at `c4bb32adc013ed11631aad2382d764655e2a166c`.
-  - `origin/roadmap-wayland-tray-options` at `f93d9a054a6a79e07e58e7a8980d0305551b042c`.
+  - `origin/roadmap-wayland-tray-options` at `c73fa7dea8931ff3d85e660190256980746f0813`.
 - Remote CI: not checked/none required; PR #8 remains draft and user requested lightweight checks.
 
 ## Issues
