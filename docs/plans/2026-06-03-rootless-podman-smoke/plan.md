@@ -187,3 +187,7 @@ Executor:
 - 2026-06-03: Implementer delegation was unavailable due current subagent nesting limit, so slice owner completed tooling/docs/evidence directly within the delegated worktree.
 - 2026-06-03: Static verification passed and recorded in `verification/local.md`.
 - 2026-06-03: Committed implementation/reporting updates, pushed branch, and opened draft PR <https://github.com/blockedby/arch-nuclear/pull/12>.
+
+## Root review follow-up ledger
+
+- 2026-06-03: Addressed root review safety issue R-01. Removed the `:Z` suffix from the repo checkout volume mount in `tools/podman-gui/podman-gui-smoke` while keeping `--security-opt label=disable` for the GUI run mode. Updated `docs/development/rootless-podman-gui-smoke.md` to state that the workflow does not relabel the host checkout by default. Re-ran static checks and recorded evidence in `verification/local.md`.

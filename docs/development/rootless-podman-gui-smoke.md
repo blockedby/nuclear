@@ -86,6 +86,6 @@ Then observe DBus/MPRIS behavior from another terminal on the host or inside the
 - Rootless Podman reduces host privilege, but this is not a sandbox for untrusted code. The container can access the mounted checkout and GUI/session sockets you expose.
 - Wayland, session DBus, PipeWire/Pulse, and `/dev/dri` access are intentionally exposed so the Tauri app can behave like a desktop app. Treat the container as part of the logged-in desktop session while it is running.
 - The workflow does not guarantee compositor-specific tray behavior. KDE, GNOME, Sway, and other status-notifier hosts may differ and still need manual observation.
-- SELinux labels are disabled for this GUI run mode (`--security-opt label=disable`) because GUI socket mounts commonly fail otherwise. On systems that require strict labels, adapt the mount policy locally.
+- SELinux labels are disabled for this GUI run mode (`--security-opt label=disable`) because GUI socket mounts commonly fail otherwise. The checkout mount deliberately omits Podman `:Z`/`:z` relabel options, so this workflow does not relabel the host checkout by default. On systems that require strict labels, adapt the mount policy locally.
 - The image build and app dependency install use network access. The static verification for this branch does not build the image or run the GUI.
 - Full production packaging (`pnpm build`, `tauri build`, AppImage/deb/rpm bundles, signing, release jobs) is intentionally outside this workflow's quick smoke path.

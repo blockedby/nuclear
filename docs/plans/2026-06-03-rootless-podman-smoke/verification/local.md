@@ -55,3 +55,22 @@ Usage:
 - AC4 docs include exact short user commands and limitations/security model: passed by `docs/development/rootless-podman-gui-smoke.md`.
 - AC5 static verification run and recorded: passed by this file.
 - AC6 draft PR URL produced: passed; draft PR <https://github.com/blockedby/arch-nuclear/pull/12> opened against `master`.
+
+## 2026-06-03 root review safety hardening re-check
+
+Scope: remove the Podman `:Z` relabel suffix from the mounted repo checkout and document that the workflow does not relabel the host checkout by default.
+
+Commands run from `/home/kcnc/code/apps/nuclear/.worktrees/podman-gui-smoke-workflow` on branch `podman-gui-smoke-workflow`:
+
+- `bash -n tools/podman-gui/podman-gui-smoke`
+  - Result: passed.
+- `tools/podman-gui/podman-gui-smoke --help >/tmp/podman-gui-help.txt`
+  - Result: passed.
+- `! grep -R -n -E -- '--volume .*docker\.sock|/var/run/docker\.sock:' tools/podman-gui docs/development/rootless-podman-gui-smoke.md`
+  - Result: passed; no Docker socket mount references found.
+- `grep -nF 'args+=(--volume "$REPO_ROOT:$WORKSPACE")' tools/podman-gui/podman-gui-smoke`
+  - Result: passed; repo mount now appears without `:Z`/`:z` at line 48.
+- `grep -nF 'does not relabel the host checkout by default' docs/development/rootless-podman-gui-smoke.md`
+  - Result: passed; no-relabel default is documented at line 89.
+- `! grep -nE 'REPO_ROOT:\$WORKSPACE:(Z|z)' tools/podman-gui/podman-gui-smoke`
+  - Result: passed; repo checkout mount no longer uses Podman relabel suffixes.
