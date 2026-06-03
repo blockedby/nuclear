@@ -11,4 +11,5 @@
 - 2026-06-03: Final targeted check `corepack pnpm --dir packages/player exec vitest --run src/hooks/useTrayWindowBehavior.test.tsx src/views/Settings/Settings.test.tsx` passed (2 files / 5 tests).
 - 2026-06-03: Quality check `corepack pnpm --dir packages/player exec eslint src/services/coreSettings.ts src/hooks/useTrayWindowBehavior.test.tsx src/views/Settings/Settings.test.tsx` passed with no output.
 - 2026-06-03: Wrote local verification artifact at `docs/plans/2026-06-03-close-to-tray-setting/verification/local.md`.
-- 2026-06-03: Preparing implementation commit; `.pnpm-store/` remains untracked/unstaged.
+- 2026-06-03: Created implementation commit `08bbd707783208849da3c6c457c8ea04b4a204c3` (`Add close to tray setting default`); `.pnpm-store/` remains untracked/unstaged.
+- 2026-06-03: Wrote final implementation report at `docs/plans/2026-06-03-close-to-tray-setting/reports/aad-implementer-close-to-tray.md`; next: commit report/progress and push origin branch.
