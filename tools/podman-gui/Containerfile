@@ -29,7 +29,7 @@ RUN pacman -Syu --noconfirm \
     libpulse \
     libsoup3 \
     libx11 \
-    libxdo \
+    xdotool \
     mesa \
     nodejs \
     npm \
