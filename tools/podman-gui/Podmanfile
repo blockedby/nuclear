@@ -1,0 +1,63 @@
+# Keep this file as a Podman-named entry point for users who expect Podmanfile.
+# It intentionally mirrors Containerfile so either path can be passed to `podman build -f`.
+FROM docker.io/archlinux:base-devel
+
+ENV LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    RUSTUP_HOME=/opt/rustup \
+    CARGO_HOME=/opt/cargo \
+    PNPM_HOME=/opt/pnpm \
+    PATH=/opt/cargo/bin:/opt/pnpm:/usr/local/bin:/usr/bin:/bin
+
+RUN pacman -Syu --noconfirm \
+    bash \
+    ca-certificates \
+    corepack \
+    dbus \
+    dbus-broker \
+    desktop-file-utils \
+    file \
+    gcc \
+    git \
+    glib2 \
+    gst-libav \
+    gst-plugins-bad \
+    gst-plugins-base \
+    gst-plugins-good \
+    gst-plugins-ugly \
+    gtk3 \
+    hicolor-icon-theme \
+    libappindicator-gtk3 \
+    libayatana-appindicator \
+    libpulse \
+    libsoup3 \
+    libx11 \
+    xdotool \
+    mesa \
+    nodejs \
+    npm \
+    openssl \
+    pango \
+    patch \
+    pipewire \
+    pipewire-pulse \
+    pkgconf \
+    playerctl \
+    procps-ng \
+    rustup \
+    strace \
+    unzip \
+    webkit2gtk-4.1 \
+    wget \
+    which \
+    xdg-utils \
+    && pacman -Scc --noconfirm
+
+RUN rustup toolchain install stable --profile minimal && \
+    rustup default stable && \
+    corepack enable && \
+    corepack prepare pnpm@latest --activate
+
+WORKDIR /workspace
+
+CMD ["bash"]

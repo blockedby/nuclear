@@ -2,18 +2,30 @@
 set -euo pipefail
 
 repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-source_binary_name="nuclear-music-player"
 artifact_binary_name="nuclear-music-player-arch"
-source_binary="${repo_root}/packages/player/src-tauri/target/release/${source_binary_name}"
+release_dir="${repo_root}/packages/player/src-tauri/target/release"
 artifact_dir="${1:-${repo_root}/artifacts/linux-arch-bin}"
 artifact_binary="${artifact_dir}/${artifact_binary_name}"
+source_binary=""
 
-if [[ ! -x "${source_binary}" ]]; then
+for candidate in nuclear-music-player player; do
+  candidate_path="${release_dir}/${candidate}"
+  if [[ -x "${candidate_path}" ]]; then
+    source_binary="${candidate_path}"
+    break
+  fi
+done
+
+if [[ -z "${source_binary}" ]]; then
   cat >&2 <<ERROR
-Release binary not found at ${source_binary}.
+Release binary not found in ${release_dir}.
+Expected either:
+  ${release_dir}/nuclear-music-player  # Tauri-renamed binary
+  ${release_dir}/player                # plain cargo build binary
+
 Build the plain executable without Tauri bundling first:
   cd ${repo_root}
-  corepack pnpm --filter @nuclearplayer/player build:frontend
+  pnpm --filter @nuclearplayer/player build:frontend
   cargo build --release --manifest-path packages/player/src-tauri/Cargo.toml
 ERROR
   exit 1
