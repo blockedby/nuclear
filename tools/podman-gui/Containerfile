@@ -10,6 +10,7 @@ ENV LANG=C.UTF-8 \
 RUN pacman -Syu --noconfirm \
     bash \
     ca-certificates \
+    corepack \
     dbus \
     dbus-broker \
     desktop-file-utils \
