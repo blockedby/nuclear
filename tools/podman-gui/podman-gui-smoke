@@ -1,0 +1,170 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(git -C "${PODMAN_GUI_REPO:-$PWD}" rev-parse --show-toplevel 2>/dev/null || pwd)"
+IMAGE_NAME="${PODMAN_GUI_IMAGE:-arch-nuclear-gui-smoke:latest}"
+CONTAINERFILE="${PODMAN_GUI_CONTAINERFILE:-$SCRIPT_DIR/Containerfile}"
+WORKSPACE="/workspace/arch-nuclear"
+
+usage() {
+  cat <<'USAGE'
+Usage: tools/podman-gui/podman-gui-smoke <command> [args]
+
+Commands:
+  build-image                 Build the Arch GUI smoke image with rootless podman.
+  shell [--branch BRANCH]     Open a shell in the mounted current checkout.
+  dev [--branch BRANCH]       Run pnpm install, then pnpm dev in packages/player.
+  check [--branch BRANCH]     Run install plus targeted non-bundling player checks.
+  run [--branch BRANCH] -- CMD Run an arbitrary command in the mounted checkout.
+
+Options:
+  --repo PATH                 Mount this checkout/worktree instead of current repo.
+  --branch NAME               Checkout NAME inside the mounted repo before command.
+  --image NAME                Override image name.
+
+Examples:
+  tools/podman-gui/podman-gui-smoke build-image
+  tools/podman-gui/podman-gui-smoke shell --branch roadmap/wayland-tray-options
+  tools/podman-gui/podman-gui-smoke dev --branch roadmap/mpris2-now-playing
+  tools/podman-gui/podman-gui-smoke run -- pnpm --filter @nuclearplayer/player test
+USAGE
+}
+
+require_podman() {
+  if ! command -v podman >/dev/null 2>&1; then
+    echo "podman is not installed or not on PATH. Install rootless Podman on the host before using this workflow." >&2
+    exit 127
+  fi
+}
+
+shell_quote_args() {
+  printf '%q ' "$@"
+}
+
+podman_mount_args() {
+  local -a args=()
+
+  args+=(--volume "$REPO_ROOT:$WORKSPACE")
+  args+=(--workdir "$WORKSPACE")
+  args+=(--env "HOME=/tmp/arch-nuclear-home")
+  args+=(--env "XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-}")
+  args+=(--env "WAYLAND_DISPLAY=${WAYLAND_DISPLAY:-}")
+  args+=(--env "DISPLAY=${DISPLAY:-}")
+  args+=(--env "DBUS_SESSION_BUS_ADDRESS=${DBUS_SESSION_BUS_ADDRESS:-}")
+  args+=(--env "PULSE_SERVER=${PULSE_SERVER:-}")
+  args+=(--env "PIPEWIRE_REMOTE=${PIPEWIRE_REMOTE:-}")
+  args+=(--env "GDK_BACKEND=${GDK_BACKEND:-wayland,x11}")
+  args+=(--env "WEBKIT_DISABLE_DMABUF_RENDERER=${WEBKIT_DISABLE_DMABUF_RENDERER:-1}")
+
+  if [[ -n "${XDG_RUNTIME_DIR:-}" && -d "${XDG_RUNTIME_DIR:-}" ]]; then
+    args+=(--volume "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR")
+  fi
+
+  if [[ -n "${WAYLAND_DISPLAY:-}" && -S "${XDG_RUNTIME_DIR:-}/$WAYLAND_DISPLAY" ]]; then
+    args+=(--volume "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY")
+  fi
+
+  if [[ -n "${DBUS_SESSION_BUS_ADDRESS:-}" && "${DBUS_SESSION_BUS_ADDRESS}" == unix:path=* ]]; then
+    local dbus_path="${DBUS_SESSION_BUS_ADDRESS#unix:path=}"
+    if [[ -S "$dbus_path" ]]; then
+      args+=(--volume "$dbus_path:$dbus_path")
+    fi
+  fi
+
+  if [[ -n "${XAUTHORITY:-}" && -f "${XAUTHORITY:-}" ]]; then
+    args+=(--env "XAUTHORITY=$XAUTHORITY")
+    args+=(--volume "$XAUTHORITY:$XAUTHORITY:ro")
+  fi
+
+  if [[ -d /dev/dri ]]; then
+    args+=(--device /dev/dri)
+  fi
+
+  printf '%s\0' "${args[@]}"
+}
+
+run_container() {
+  local branch="$1"
+  shift
+  local command_text="$1"
+  local -a mount_args=()
+  mapfile -d '' -t mount_args < <(podman_mount_args)
+
+  local setup="mkdir -p /tmp/arch-nuclear-home"
+  if [[ -n "$branch" ]]; then
+    setup+=" && git fetch origin --prune && git checkout $(printf '%q' "$branch")"
+  fi
+
+  podman run --rm -it \
+    --userns keep-id \
+    --security-opt label=disable \
+    --ipc host \
+    "${mount_args[@]}" \
+    "$IMAGE_NAME" \
+    bash -lc "$setup && $command_text"
+}
+
+command_name="${1:-}"
+if [[ -z "$command_name" || "$command_name" == "-h" || "$command_name" == "--help" ]]; then
+  usage
+  exit 0
+fi
+shift
+
+branch=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --repo)
+      REPO_ROOT="$(git -C "$2" rev-parse --show-toplevel 2>/dev/null || realpath "$2")"
+      shift 2
+      ;;
+    --branch)
+      branch="$2"
+      shift 2
+      ;;
+    --image)
+      IMAGE_NAME="$2"
+      shift 2
+      ;;
+    --)
+      shift
+      break
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+case "$command_name" in
+  build-image)
+    require_podman
+    podman build -t "$IMAGE_NAME" -f "$CONTAINERFILE" "$SCRIPT_DIR"
+    ;;
+  shell)
+    require_podman
+    run_container "$branch" "exec bash"
+    ;;
+  dev)
+    require_podman
+    run_container "$branch" "corepack pnpm install && cd packages/player && corepack pnpm dev"
+    ;;
+  check)
+    require_podman
+    run_container "$branch" "corepack pnpm install && corepack pnpm --filter @nuclearplayer/player type-check && corepack pnpm --filter @nuclearplayer/player test"
+    ;;
+  run)
+    require_podman
+    if [[ $# -eq 0 ]]; then
+      echo "run requires a command after --" >&2
+      exit 2
+    fi
+    run_container "$branch" "$(shell_quote_args "$@")"
+    ;;
+  *)
+    echo "Unknown command: $command_name" >&2
+    usage >&2
+    exit 2
+    ;;
+esac
