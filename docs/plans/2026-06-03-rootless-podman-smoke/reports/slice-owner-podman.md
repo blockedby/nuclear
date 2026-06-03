@@ -39,7 +39,7 @@
   - Gap if any: runtime checks skipped by scope.
 - AC6 draft PR URL produced.
   - Status: done.
-  - Evidence: draft PR <https://github.com/blockedby/arch-nuclear/pull/12>; commit `a16c019e`.
+  - Evidence: draft PR <https://github.com/blockedby/arch-nuclear/pull/12>; pushed branch `podman-gui-smoke-workflow`.
   - Gap if any: none.
 
 ## Acceptance verification
@@ -66,7 +66,7 @@
 - AC6: draft PR URL produced.
   - Covered by: `gh pr create` / `gh pr view` after push.
   - Result: passed.
-  - Evidence: draft PR <https://github.com/blockedby/arch-nuclear/pull/12>; `gh pr view 12 --json url,isDraft,state,headRefName,baseRefName` showed draft/open targeting `master`.
+  - Evidence: draft PR <https://github.com/blockedby/arch-nuclear/pull/12>; `gh pr view 12 --json url,isDraft,state,headRefName,baseRefName` showed draft/open targeting `master` from `podman-gui-smoke-workflow`.
 
 ## System readiness
 - Routes / registration: not relevant.
@@ -88,7 +88,7 @@
   - `pnpm build` / `tauri build` / GUI run: not run; explicitly out of scope/unsafe-expensive for this static workflow slice.
 - Remote checks / CI:
   - Status: draft PR open; no CI readiness claimed.
-  - Evidence: <https://github.com/blockedby/arch-nuclear/pull/12> is draft.
+  - Evidence: <https://github.com/blockedby/arch-nuclear/pull/12> is draft; `gh pr checks 12 --repo blockedby/arch-nuclear` returned `no checks reported on the 'podman-gui-smoke-workflow' branch`.
 
 ## Issues
 ### Issue R-01: Missing rootless Podman GUI smoke workflow
