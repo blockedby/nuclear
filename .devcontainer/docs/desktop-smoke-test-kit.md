@@ -1,10 +1,10 @@
 # Desktop smoke-test kit for draft PR branches
 
-Use this kit to build repo-local Arch packages for draft desktop branches and manually validate them on an Arch desktop. The low-level build helper creates ignored worktrees and artifacts under `artifacts/`; it does not install host packages, run host `pacman`, merge branches, or prune/remove anything outside the repository. The simple wrapper below intentionally runs only one host install command: user-invoked `sudo pacman -U --needed` for the generated package.
+Use this kit to build repo-local Arch packages for draft desktop branches and manually validate them on an Arch desktop. The low-level build helper creates ignored worktrees and artifacts under `artifacts/`; it does not install host packages, run host `pacman`, merge branches, or prune/remove anything outside the repository. The simple wrapper below intentionally runs only one host install command: user-invoked `sudo pacman -U` for the generated package.
 
 ## Simple build + install
 
-For the common smoke-test path, use the wrapper first. It builds the selected draft branch, finds the generated Arch package, installs it with `sudo pacman -U --needed`, then prints the launch, evidence, and rollback commands.
+For the common smoke-test path, use the wrapper first. It builds the selected draft branch, finds the generated Arch package, installs it with `sudo pacman -U`, then prints the launch, evidence, and rollback commands. The wrapper intentionally does not use `--needed`, because smoke packages reuse the same version/pkgrel while their contents change.
 
 Wayland tray package:
 
@@ -152,7 +152,7 @@ PR #8 Wayland tray package:
 WAYLAND_PACKAGE_DIR="$PWD/artifacts/branch-arch-package/worktrees/roadmap__wayland-tray-options/artifacts/arch-package/packages"
 WAYLAND_PACKAGE="$(find "$WAYLAND_PACKAGE_DIR" -maxdepth 1 -type f -name '*.pkg.tar.zst' -print -quit)"
 test -n "$WAYLAND_PACKAGE"
-sudo pacman -U --needed "$WAYLAND_PACKAGE"
+sudo pacman -U "$WAYLAND_PACKAGE"
 command -v nuclear-music-player-arch
 /usr/bin/nuclear-music-player-arch --version || true
 ```
@@ -163,7 +163,7 @@ PR #7 MPRIS2/KDE Connect package:
 MPRIS_PACKAGE_DIR="$PWD/artifacts/branch-arch-package/worktrees/roadmap__mpris2-now-playing/artifacts/arch-package/packages"
 MPRIS_PACKAGE="$(find "$MPRIS_PACKAGE_DIR" -maxdepth 1 -type f -name '*.pkg.tar.zst' -print -quit)"
 test -n "$MPRIS_PACKAGE"
-sudo pacman -U --needed "$MPRIS_PACKAGE"
+sudo pacman -U "$MPRIS_PACKAGE"
 command -v nuclear-music-player-arch
 /usr/bin/nuclear-music-player-arch --version || true
 ```

@@ -30,7 +30,7 @@ Targets:
 What this does:
   1. Runs .devcontainer/scripts/build-branch-arch-package.sh <branch>
   2. Finds the generated *.pkg.tar.zst in artifacts/branch-arch-package/worktrees/<slug>/artifacts/arch-package/packages
-  3. Runs sudo pacman -U --needed "\$pkg"
+  3. Runs sudo pacman -U "\$pkg" so same-version smoke builds reinstall
   4. Prints the run command, evidence/log suggestion, and rollback command
 
 Rollback:
@@ -115,7 +115,7 @@ mapfile -t package_files < <(find "${package_dir}" -maxdepth 1 -type f -name '*.
 package_path="${package_files[0]}"
 
 printf 'Installing generated package:\n  %s\n' "${package_path}"
-sudo pacman -U --needed "${package_path}"
+sudo pacman -U "${package_path}"
 
 cat <<NEXT
 
